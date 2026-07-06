@@ -1,0 +1,49 @@
+{
+  "name": "shiro-portfolio-nuxt4",
+  "version": "1.0.0",
+  "description": "shiro, where style meets function — Nuxt 4 Portfolio",
+  "private": true,
+  "type": "module",
+  "theme": {
+    "primary": "#6C5CE7",
+    "secondary": "#625B71",
+    "tertiary": "#7D5260"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "generate": "nuxi generate",
+    "generate:theme": "node scripts/generate-theme.mjs",
+    "preview": "nuxi preview",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "browserslist": [
+    "defaults",
+    "> 0.5%",
+    "not dead"
+  ],
+  "dependencies": {
+    "@material/material-color-utilities": "^0.4.0",
+    "@nuxtjs/i18n": "^10.4.0",
+    "@nuxtjs/seo": "^5.3.2",
+    "@pinia/nuxt": "^0.11.3",
+    "@tailwindcss/vite": "^4.3.2",
+    "@vite-pwa/nuxt": "^1.1.1",
+    "nuxt": "^4.4.8",
+    "nuxt-security": "^2.6.0",
+    "pinia": "^3.0.4",
+    "tailwindcss": "^4.3.2",
+    "vue": "^3.5.39"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@vue/test-utils": "^2.4.11",
+    "happy-dom": "^20.10.6",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.10"
+  }
+}

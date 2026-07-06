@@ -1,0 +1,12 @@
+node_modules/
+.output/
+.data/
+public/dist/
+.nuxt/
+*.log
+.env
+.env.*
+.DS_Store
+
+# Local Netlify folder
+.netlify
