@@ -17,7 +17,7 @@ const aboutStats = [
         <h2 class="text-3xl md:text-5xl font-bold text-[var(--md-sys-color-on-surface)]">{{ t('about.subtitle') }}</h2>
       </div>
 
-      <div class="rounded-3xl bg-[var(--md-sys-color-surface-container)] border border-[var(--md-sys-color-outline-variant)] p-8 md:p-12">
+      <ACard variant="filled" padding="lg" class="md:p-12">
         <div class="flex flex-col md:flex-row gap-8 items-center md:items-start">
           <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[var(--md-sys-color-primary)] to-[var(--md-sys-color-tertiary)] flex items-center justify-center text-white text-3xl font-black shrink-0">S</div>
           <div class="text-center md:text-left">
@@ -33,12 +33,12 @@ const aboutStats = [
         <p class="text-[var(--md-sys-color-on-surface-variant)] leading-relaxed mt-8">{{ t('about.bio') }}</p>
 
         <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          <div v-for="s in aboutStats" :key="s.key" class="p-4 rounded-xl bg-[var(--md-sys-color-surface)]">
+          <ACard v-for="s in aboutStats" :key="s.key" variant="filled" padding="sm" class="bg-[var(--md-sys-color-surface)]">
             <div class="text-2xl font-black text-[var(--md-sys-color-primary)]">{{ s.value }}</div>
             <div class="text-xs text-[var(--md-sys-color-on-surface-variant)] mt-1">{{ t(`about.stats_${s.key}`) }}</div>
-          </div>
+          </ACard>
         </div>
-      </div>
+      </ACard>
     </div>
   </section>
 </template>

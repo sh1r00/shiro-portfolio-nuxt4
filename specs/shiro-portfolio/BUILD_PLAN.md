@@ -10,42 +10,36 @@
 - [x] Dark mode (Pinia + cookie)
 - [x] Deployed to Netlify (`shiro-portfolio-sh1r00.netlify.app`)
 
-## ⚠️ Drift — cleanup deltas (highest priority)
+## ⚠️ Drift — cleanup deltas
 
-The scaffold exists but the page has drifted from it. Fix in this order:
+### Phase 1 — Atomic refactor (wire the organisms into the page) · ✅
+- [x] `index.vue` is now a thin composer of `OHeroSection`, `OStatsSection`, `OSkillsSection`,
+      `OWorksSection`, `OScreenshotsCarousel`, `OAboutSection`, `OContactSection`.
+- [x] `MLanguageSwitcher` (defined) used — via `ONavbar`.
+- [x] `MProjectCard` (defined) used — via `OWorksSection`.
 
-### Phase 1 — Atomic refactor (wire the organisms into the page)
-- [ ] `index.vue` inlines ALL section markup (header, hero, skills, live, templates,
-      preview, about, footer) while `ONavbar`, `OHeroSection`, `OSkillsSection`,
-      `OWorksSection`, `OScreenshotsCarousel`, `OStatsSection`, `OContactSection`,
-      `OFooter` are defined but **unused**. Refactor: move each section's markup + data
-      into its organism; `index.vue` becomes a thin composer of `<O… />`.
-- [ ] Use `MLanguageSwitcher` (defined) instead of the raw `<select v-model="locale">`.
-- [ ] Use `MProjectCard` (defined) for template/live cards.
+### Phase 2 — Wire up i18n (remove hardcoded English) · ✅
+- [x] All strings now `$t()`-driven through the organisms.
+- [x] `<html lang>` driven dynamically from `locale` (in `index.vue` `useHead`).
+- [x] Drift reconciled: organisms use the 8 canonical skills matching `en.json`.
 
-### Phase 2 — Wire up i18n (remove hardcoded English)
-- [ ] `index.vue` is hardcoded English; the `useHead` hardcodes `lang: 'en'`. Replace
-      every string with `$t('…')` keys from `en.json` (and add missing keys to es/am).
-- [ ] Drive `<html lang>` dynamically (`useHead(() => ({ htmlAttrs: { lang: locale.value } }))`),
-      not a hardcoded `'en'`.
-- [ ] Reconcile drift: the page has 12 skills; `en.json` has 8. Pick one source of truth.
+### Phase 3 — i18n config safety · ✅
+- [x] `detectBrowserLanguage: false` (removed the `alwaysRedirect: false` landmine).
+- [x] `trailingSlash` left at Nuxt 4 default (`true`).
 
-### Phase 3 — i18n config safety
-- [ ] `nuxt.config.ts` has `detectBrowserLanguage: { alwaysRedirect: false, useCookie: true }`
-      — the `alwaysRedirect: false` landmine (redirect loop). Change to `detectBrowserLanguage: false`.
-- [ ] Ensure `trailingSlash: true` (default) so `switchLocalePath` emits `/es/`.
-
-### Phase 4 — Missing contact section
-- [ ] `OContactSection` is defined but there's no contact section on the page. Add it
-      (name/email/message + `mailto:`) and wire `contact.*` i18n keys.
+### Phase 4 — Missing contact section · ✅
+- [x] `OContactSection` wired into `index.vue`; `contact.*` keys present in en/es/am.
 
 ### Phase 5 — SEO
 - [ ] Add `useLocaleHead({ seo: true })` for per-locale `canonical` + `hreflang`.
 
 ### Phase 6 — Content as data
-- [ ] Extract the hardcoded `skills` / `templates` / `liveProjects` / `screenshots` arrays
-      out of the page into a single content module (or Nuxt Content) so they're reusable
-      and i18n-able.
+- [ ] Extract skills/templates/projects/screenshots arrays into a single content module (or Nuxt Content).
+
+### Phase 7 — Full atom composition (in progress)
+- [x] `MProjectCard` → `AImage` + `ABadge`; `OStatsSection`/`OSkillsSection` → `ACard`;
+      `OContactSection`/`OHeroSection`/`OAboutSection` → `AButton`.
+- [ ] Convert headings/paragraphs to `AText` and emoji to `AIcon` (visual-regression risk — do carefully).
 
 ## Verify
 - `npm run test:unit` (Vitest) + `npm run test:e2e` (Playwright) — add if the test dirs are missing.

@@ -2,10 +2,10 @@
 const { t } = useI18n()
 
 const stats = [
-  { key: 'projects', value: '16+',  icon: '📦' },
-  { key: 'templates', value: '12',  icon: '🎨' },
-  { key: 'live',     value: '4',   icon: '🚀' },
-  { key: 'languages', value: '3',   icon: '🌐' },
+  { key: 'projects', value: '16+', icon: '📦' },
+  { key: 'templates', value: '12', icon: '🎨' },
+  { key: 'live', value: '4', icon: '🚀' },
+  { key: 'languages', value: '3', icon: '🌐' },
 ]
 </script>
 
@@ -16,19 +16,11 @@ const stats = [
         {{ t('stats.title') }}
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div
-          v-for="stat in stats"
-          :key="stat.key"
-          class="text-center p-6 rounded-3xl bg-[var(--md-sys-color-surface-container)]"
-        >
+        <ACard v-for="stat in stats" :key="stat.key" variant="filled" padding="md" class="text-center">
           <div class="text-3xl mb-2">{{ stat.icon }}</div>
-          <div class="text-3xl md:text-4xl font-bold text-[var(--md-sys-color-primary)]">
-            {{ stat.value }}
-          </div>
-          <div class="text-sm text-[var(--md-sys-color-on-surface-variant)] mt-1">
-            {{ t(`stats.${stat.key}`) }}
-          </div>
-        </div>
+          <div class="text-3xl md:text-4xl font-bold text-[var(--md-sys-color-primary)]">{{ stat.value }}</div>
+          <div class="text-sm text-[var(--md-sys-color-on-surface-variant)] mt-1">{{ t(`stats.${stat.key}`) }}</div>
+        </ACard>
       </div>
     </div>
   </section>
