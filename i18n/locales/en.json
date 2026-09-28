@@ -81,6 +81,19 @@
     "message": "Your Message",
     "send": "Send Message"
   },
+  "about": {
+    "title": "About shiro",
+    "subtitle": "One developer. 16+ projects. Endless passion for clean code and beautiful design.",
+    "name": "sh1r00",
+    "role": "Full-Stack Developer & Design Engineer",
+    "github": "GitHub",
+    "email": "Email",
+    "bio": "shiro is a solo full-stack developer specializing in Nuxt 4, Vue 3, Hapi.js, and M3 Design. With 16+ projects deployed across Netlify and Heroku, every site is built with performance-first architecture, viral aesthetics, accessibility compliance, and zero-console-error quality gates. From restaurant fine-dining templates to fintech dashboards, from e-commerce PWAs to AI-powered marketing generators — shiro delivers production-ready code that converts.",
+    "stats_projects": "Projects Deployed",
+    "stats_categories": "Project Categories",
+    "stats_languages": "Languages",
+    "stats_detail": "Attention to Detail"
+  },
   "theme": {
     "light": "Light Mode",
     "dark": "Dark Mode"

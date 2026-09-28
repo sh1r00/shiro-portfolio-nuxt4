@@ -1,13 +1,9 @@
 <script setup lang="ts">
 const darkMode = useDarkModeStore()
 
-// Apply dark mode on mount and on change
+// Apply persisted dark mode on mount (toggle() already applies the class on change)
 onMounted(() => {
-  darkMode.applyToDocument()
-})
-
-watch(() => darkMode.isDark, () => {
-  darkMode.applyToDocument()
+  darkMode.initialize()
 })
 </script>
 

@@ -13,7 +13,7 @@ export default defineNuxtConfig({
       { code: 'es', iso: 'es-ES', name: 'Español', file: 'es.json' },
       { code: 'am', iso: 'am-ET', name: 'አማርኛ', file: 'am.json' },
     ],
-    detectBrowserLanguage: { alwaysRedirect: false, useCookie: true },
+    detectBrowserLanguage: false,
     lazy: true,
     langDir: 'locales',
   },

@@ -1,1 +1,77 @@
-{"nav":{"skills":"ችሎታዎች","templates":"አብነቶች","live":"ቀጥታ ፕሮጀክቶች","preview":"ቅድመ እይታ"},"hero":{"badge":"የድር ልማት ስቱዲዮ","title":"የሚቀየሩ ዲጂታል ልምዶችን መፍጠር","subtitle":"በNuxt 4, Vue 3 እና በዘመናዊ Jamstack አርክቴክቸር የተካነ ሙሉ-ቁልል ድር ልማት።","cta1":"ስራችንን ይመልከቱ","cta2":"ችሎታዎችን ያስሱ"},"stats":{"projects":"የተሰማሩ ፕሮጀክቶች","templates":"Nuxt 4 አብነቶች","live":"ቀጥታ መተግበሪያዎች","languages":"ቋንቋዎች"},"skills":{"heading":"እኛ ምን እንሰራለን","subtitle":"ከአርክቴክቸር እስከ ማሰማራት ያለው ሙሉ ልምድ።"},"templates":{"heading":"አብነቶች","subtitle":"ለምርት ዝግጁ የሆኑ Nuxt 4 አብነቶች።"},"live":{"heading":"ቀጥታ ፕሮጀክቶች","subtitle":"በምርት ላይ ያሉ ብጁ የተሰሩ መተግበሪያዎች።"},"preview":{"heading":"የፕሮጀክት ቅድመ እይታ","subtitle":"የተወሰኑ ቀጥታ ፕሮጀክቶቻችንን በፍጥነት ይመልከቱ።"},"footer":{"madeWithLove":"በ❤️ በshiro የተሰራ","tagline":"ቅጥ ከተግባር ጋር የሚገናኝበት"}}
+{
+  "hero": {
+    "greeting": "ሰላም፣ እኔ shiro ነኝ",
+    "tagline": "ቅጥ ከተግባር ጋር የሚገናኝበት",
+    "subtitle": "ሙሉ-ቁልል ገንቢ እና የNuxt 4 ስፔሻሊስት",
+    "cta_works": "ስራዬን ይመልከቱ",
+    "cta_contact": "ያግኙኝ"
+  },
+  "skills": {
+    "title": "ችሎታዎች እና እውቀት",
+    "subtitle": "በየቀኑ የምሰራባቸው ቴክኖሎጂዎች",
+    "nuxt": { "name": "Nuxt 4 እና Vue 3", "desc": "ሙሉ የፍልሰት እውቀት፣ SSR/static generation፣ Pinia state፣ composables እና i18n ውህደት (en/es/am)" },
+    "m3": { "name": "M3 ዲዛይን ሲስተም", "desc": "Atomic ዲዛይን አርክቴክቸር (atoms/molecules/organisms)፣ viral M3 ውበት እና ጥሩ የጨለማ ሁነታ" },
+    "i18n": { "name": "i18n እና ተደራሽነት", "desc": "ባለብዙ ቋንቋ ድጋፍ (3 ቋንቋዎች)፣ WCAG 2.1፣ skip-to-content እና ሙሉ ARIA መለያዎች" },
+    "security": { "name": "ደህንነት እና PWA", "desc": "CSP ራስጌዎች፣ XSS ጥበቃ፣ offline-first service workers እና ደህንነቱ የተጠበቀ ማሰማራት" },
+    "github": { "name": "GitHub እና CI/CD", "desc": "ባች የሪፖዚቶሪ አስተዳደር፣ SSH ማረጋገጫ እና የ16+ ሪፖዚቶሪዎች በራስ-ሰር ፍሰቶች" },
+    "netlify": { "name": "Netlify እና Heroku", "desc": "Static ድረ-ገጾች ማሰማራት፣ API zip ጭነቶች እና የbackend አገልጋይ ውቅር" },
+    "testing": { "name": "Testing እና QA", "desc": "Vitest unit ሙከራዎች፣ Playwright E2E እና ዜሮ-ኮንሶል-ስህተት የጥራት ቁጥጥር" },
+    "ai": { "name": "AI Agent አውቶሜሽን", "desc": "Hermes Agent skills፣ cron መርሐግብር፣ multi-agent ውክልና እና ባች የስራ ፍሰቶች" }
+  },
+  "works": {
+    "title": "ስራዬ",
+    "subtitle": "የገነባኋቸው ፕሮጀክቶች እና አብነቶች",
+    "templates": "አብነቶች",
+    "templates_desc": "ለመጠቀም ዝግጁ የድረ-ገጽ አብነቶች",
+    "live_projects": "ቀጥታ ፕሮጀክቶች",
+    "live_projects_desc": "የምርት መተግበሪያዎች",
+    "live_badge": "ቀጥታ",
+    "view_site": "ጣቢያ ይመልከቱ",
+    "screenshots": "ቅጽበተ-ፎቶዎች",
+    "screenshots_desc": "የፕሮጀክት ቅድመ እይታዎች"
+  },
+  "stats": {
+    "title": "በቁጥሮች",
+    "projects": "የተሰማሩ ፕሮጀክቶች",
+    "templates": "Nuxt 4 አብነቶች",
+    "live": "ቀጥታ መተግበሪያዎች",
+    "languages": "ቋንቋዎች"
+  },
+  "nav": {
+    "home": "መነሻ",
+    "skills": "ችሎታዎች",
+    "works": "ስራዎች",
+    "screenshots": "ቅጽበተ-ፎቶዎች",
+    "contact": "እውቂያ"
+  },
+  "footer": {
+    "made_with": "በ❤️ በshiro የተሰራ",
+    "tagline": "ቅጥ ከተግባር ጋር የሚገናኝበት",
+    "rights": "መብቱ በህግ የተጠበቀ ነው።"
+  },
+  "contact": {
+    "title": "ያግኙኝ",
+    "subtitle": "ፕሮጀክት አለዎት? እንነጋገር!",
+    "name": "ስምዎ",
+    "email": "ኢሜይልዎ",
+    "message": "መልዕክትዎ",
+    "send": "መልዕክት ላክ"
+  },
+  "about": {
+    "title": "ስለ shiro",
+    "subtitle": "አንድ ገንቢ። 16+ ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
+    "name": "sh1r00",
+    "role": "ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ",
+    "github": "GitHub",
+    "email": "ኢሜይል",
+    "bio": "shiro በNuxt 4፣ Vue 3፣ Hapi.js እና M3 ዲዛይን የተካነ ብቸኛ ሙሉ-ቁልል ገንቢ ነው። ከ16 በላይ ፕሮጀክቶች በNetlify እና Heroku ላይ የተሰማሩ ሲሆን፣ እያንዳንዱ ጣቢያ በአፈጻጸም-መጀመሪያ አርክቴክቸር፣ በviral ውበት፣ በተደራሽነት ተገዢነት እና በዜሮ-ኮንሶል-ስህተት የጥራት ቁጥጥር ይገነባል።",
+    "stats_projects": "የተሰማሩ ፕሮጀክቶች",
+    "stats_categories": "የፕሮጀክት ምድቦች",
+    "stats_languages": "ቋንቋዎች",
+    "stats_detail": "ለዝርዝር ትኩረት"
+  },
+  "theme": {
+    "light": "ብርሃን ሁነታ",
+    "dark": "ጨለማ ሁነታ"
+  }
+}

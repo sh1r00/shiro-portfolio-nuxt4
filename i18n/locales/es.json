@@ -1,1 +1,77 @@
-{"nav":{"skills":"Habilidades","templates":"Plantillas","live":"Proyectos","preview":"Vista"},"hero":{"badge":"Estudio de Desarrollo Web","title":"Creando Experiencias Digitales Que Convierten","subtitle":"Desarrollo web full-stack especializado en Nuxt 4, Vue 3 y arquitectura Jamstack moderna.","cta1":"Ver Trabajo","cta2":"Explorar Habilidades"},"stats":{"projects":"Proyectos","templates":"Plantillas Nuxt 4","live":"Aplicaciones","languages":"Idiomas"},"skills":{"heading":"Qué Hacemos","subtitle":"Experiencia integral desde arquitectura hasta despliegue."},"templates":{"heading":"Plantillas","subtitle":"Plantillas Nuxt 4 listas para producción."},"live":{"heading":"Proyectos Activos","subtitle":"Aplicaciones personalizadas en producción."},"preview":{"heading":"Vistas Previas","subtitle":"Vistazo rápido a algunos proyectos."},"footer":{"madeWithLove":"Hecho con ❤️ por shiro","tagline":"donde el estilo se une a la función"}}
+{
+  "hero": {
+    "greeting": "Hola, soy shiro",
+    "tagline": "donde el estilo se une a la función",
+    "subtitle": "Desarrollador Full-Stack y especialista en Nuxt 4",
+    "cta_works": "Ver Mi Trabajo",
+    "cta_contact": "Ponerse en Contacto"
+  },
+  "skills": {
+    "title": "Habilidades y Experiencia",
+    "subtitle": "Tecnologías con las que trabajo a diario",
+    "nuxt": { "name": "Nuxt 4 y Vue 3", "desc": "Experiencia en migración completa, SSR/generación estática, estado Pinia, composables e integración i18n (en/es/am)" },
+    "m3": { "name": "Sistema de Diseño M3", "desc": "Arquitectura de diseño atómico (átomos/moléculas/organismos), estética M3 viral y modo oscuro sin interrupciones" },
+    "i18n": { "name": "i18n y Accesibilidad", "desc": "Soporte multi-idioma (3 idiomas), WCAG 2.1, navegación skip-to-content y etiquetas ARIA completas" },
+    "security": { "name": "Seguridad y PWA", "desc": "Cabeceras CSP, protección XSS, service workers offline-first y prácticas de despliegue seguras" },
+    "github": { "name": "GitHub y CI/CD", "desc": "Gestión de repositorios por lotes, autenticación SSH y orquestación de 16+ repositorios con flujos automatizados" },
+    "netlify": { "name": "Netlify y Heroku", "desc": "Despliegues de sitios estáticos, subidas de API por zip y configuración y despliegue de servidores backend" },
+    "testing": { "name": "Testing y QA", "desc": "Pruebas unitarias Vitest, pruebas E2E Playwright y controles de calidad sin errores de consola" },
+    "ai": { "name": "Automatización con Agentes IA", "desc": "Skills de Hermes Agent, programación cron, delegación multi-agente y flujos de ejecución por lotes" }
+  },
+  "works": {
+    "title": "Mi Trabajo",
+    "subtitle": "Proyectos y plantillas que he construido",
+    "templates": "Plantillas",
+    "templates_desc": "Plantillas de sitios web listas para usar",
+    "live_projects": "Proyectos Activos",
+    "live_projects_desc": "Aplicaciones en producción",
+    "live_badge": "EN VIVO",
+    "view_site": "Ver Sitio",
+    "screenshots": "Capturas",
+    "screenshots_desc": "Vistas previas de proyectos"
+  },
+  "stats": {
+    "title": "En Números",
+    "projects": "Proyectos Desplegados",
+    "templates": "Plantillas Nuxt 4",
+    "live": "Aplicaciones Activas",
+    "languages": "Idiomas"
+  },
+  "nav": {
+    "home": "Inicio",
+    "skills": "Habilidades",
+    "works": "Trabajo",
+    "screenshots": "Capturas",
+    "contact": "Contacto"
+  },
+  "footer": {
+    "made_with": "Hecho con ❤️ por shiro",
+    "tagline": "donde el estilo se une a la función",
+    "rights": "Todos los derechos reservados."
+  },
+  "contact": {
+    "title": "Ponerse en Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "name": "Tu Nombre",
+    "email": "Tu Correo",
+    "message": "Tu Mensaje",
+    "send": "Enviar Mensaje"
+  },
+  "about": {
+    "title": "Sobre shiro",
+    "subtitle": "Un desarrollador. 16+ proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
+    "name": "sh1r00",
+    "role": "Desarrollador Full-Stack e Ingeniero de Diseño",
+    "github": "GitHub",
+    "email": "Correo",
+    "bio": "shiro es un desarrollador full-stack independiente especializado en Nuxt 4, Vue 3, Hapi.js y diseño M3. Con más de 16 proyectos desplegados en Netlify y Heroku, cada sitio se construye con arquitectura de rendimiento primero, estética viral, cumplimiento de accesibilidad y controles de calidad sin errores de consola. Desde plantillas de restaurantes de alta cocina hasta paneles fintech, desde PWA de comercio electrónico hasta generadores de marketing impulsados por IA — shiro entrega código listo para producción que convierte.",
+    "stats_projects": "Proyectos Desplegados",
+    "stats_categories": "Categorías de Proyecto",
+    "stats_languages": "Idiomas",
+    "stats_detail": "Atención al Detalle"
+  },
+  "theme": {
+    "light": "Modo Claro",
+    "dark": "Modo Oscuro"
+  }
+}
