@@ -33,6 +33,9 @@ const currentYear = new Date().getFullYear()
           <a href="mailto:shiro@sh1r00.com" class="text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-primary)] transition-colors" aria-label="Email">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </a>
+          <NuxtLink to="/admin/login" class="text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-primary)] transition-colors opacity-60 hover:opacity-100" aria-label="Admin">
+            <AIcon name="settings" size="sm" />
+          </NuxtLink>
         </div>
       </div>
     </div>

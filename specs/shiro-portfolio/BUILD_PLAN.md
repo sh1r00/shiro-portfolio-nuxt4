@@ -41,7 +41,19 @@
       `OContactSection`/`OHeroSection`/`OAboutSection` → `AButton`.
 - [ ] Convert headings/paragraphs to `AText` and emoji to `AIcon` (visual-regression risk — do carefully).
 
+### Phase 8 — Database + admin (libSQL-backed works + footer gear admin) · ✅
+- [x] SSG → SSR (`nuxt build`; `netlify.toml` uses `npm run build`, Nitro `netlify` preset).
+- [x] libSQL data layer (`server/utils/db.ts`): Turso `libsql://` (prod) / local `file:` (dev); auto-creates the DB dir.
+- [x] Tables + seed: `portfolio_items` (title/url/thumbnail/kind/sort_order), `admin_users`, `contact_inquiries` — seeded from the old hardcoded arrays.
+- [x] Public `GET /api/works` → `useWorks()` feeds `OWorksSection` (was hardcoded).
+- [x] Admin auth: bcrypt + h3 signed session (`NUXT_ADMIN_SECRET`), per-username lockout, `requireAdmin` guard.
+- [x] Admin UI: footer gear icon → `/admin/login` → `layouts/admin.vue` + `OAdminItems` CRUD + inquiries list.
+- [x] Contact form → real `POST /api/contact` (was a silent no-op).
+- [x] Toast system (`stores/toast.ts` + `OToast`/`MToast`) for loud error visibility.
+- **Verify:** `npm run build` clean; runtime smoke test passed (seed 4 live + 12 templates → session 401 → login ok).
+
 ## Verify
 - `npm run test:unit` (Vitest) + `npm run test:e2e` (Playwright) — add if the test dirs are missing.
-- `npm run generate` — clean SSG output for `/`, `/es/`, `/am/`.
+- `npm run build` — clean SSR output (was `generate`/SSG).
+- Runtime smoke: `node .output/server/index.mjs` → `/api/works`, `/api/admin/session`, login.
 - Flip `[ ]` → `[x]` as each phase lands.

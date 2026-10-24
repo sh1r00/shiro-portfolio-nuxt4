@@ -1,0 +1,9 @@
+# Netlify — Nuxt 4 SSR (Nitro `netlify` preset, auto-detected at build time).
+# Was SSG (`npm run generate`); now SSR so the libSQL-backed works data + admin can
+# be updated at runtime. Functions are auto-detected from `.netlify/`.
+[build]
+  command = "npm run build"
+  publish = ".output/public"
+
+[build.environment]
+  NODE_VERSION = "22"

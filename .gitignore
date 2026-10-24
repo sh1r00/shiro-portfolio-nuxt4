@@ -7,7 +7,11 @@ public/dist/
 *.log
 .env
 .env.*
+!.env.example
 .DS_Store
+
+# Local SQLite dev database (libSQL file: mode)
+server/data/
 
 # Local Netlify folder
 .netlify

@@ -17,9 +17,23 @@ export default defineNuxtConfig({
     lazy: true,
     langDir: 'locales',
   },
-  security: { ssg: { hashScripts: false } },
-  nitro: { prerender: { failOnError: false } },
-  runtimeConfig: { public: { baseUrl: '' } },
+  security: {
+    ssg: { hashScripts: false },
+    // xssValidator breaks POST bodies (escapeHtml TypeError on any POST) — inputs are
+    // validated server-side instead. csrf off: the admin session cookie is SameSite=lax,
+    // which blocks cross-site POST (the primary CSRF vector for a single-user admin).
+    xssValidator: false,
+    csrf: false,
+  },
+  nitro: {
+    prerender: { failOnError: false },
+    // @libsql/client ships a native/WASM libsql binding for `file:` mode — don't bundle it.
+    externals: { external: ['@libsql/client', 'libsql'] },
+  },
+  runtimeConfig: {
+    adminSecret: '', // NUXT_ADMIN_SECRET (32+ chars) — session signing
+    public: { baseUrl: '' },
+  },
   app: {
     head: {
       link: [

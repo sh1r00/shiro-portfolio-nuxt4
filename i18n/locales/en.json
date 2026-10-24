@@ -79,7 +79,9 @@
     "name": "Your Name",
     "email": "Your Email",
     "message": "Your Message",
-    "send": "Send Message"
+    "send": "Send Message",
+    "success": "Message sent! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again."
   },
   "about": {
     "title": "About shiro",
