@@ -1,9 +1,11 @@
-# Netlify — Nuxt 4 SSR (Nitro `netlify` preset, auto-detected at build time).
-# Was SSG (`npm run generate`); now SSR so the libSQL-backed works data + admin can
-# be updated at runtime. Functions are auto-detected from `.netlify/`.
+# Netlify — Nuxt 4 SSR (Nitro `netlify` preset).
+# Was SSG (`npm run generate`); now SSR so the libSQL-backed works data + admin
+# can be updated at runtime. Functions auto-detected from `.netlify/`.
+# `--legacy-peer-deps`: esbuild peer conflict (vite@8 vs @intlify/bundle-utils).
+# NODE_VERSION=24: nuxt-security@2.6.0 requires node >=24 (EBADENGINE on 22).
 [build]
-  command = "npm run build"
-  publish = ".output/public"
+  command = "npm install --legacy-peer-deps --no-audit --no-fund && npx nuxi build --preset netlify"
+  publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
