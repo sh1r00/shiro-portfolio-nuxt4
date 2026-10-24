@@ -10,15 +10,20 @@ const kPass = ['NUXT_', 'ADMIN_', 'PASS', 'WORD'].join('')
 
 // Load .env into process.env at runtime (the built Nitro server does not auto-load it).
 // Manual loader: does not override existing env vars (host env takes precedence).
+// (Guarded: Cloudflare Workers have no fs — env vars come from Pages secrets in prod.)
 function loadEnvFile(): void {
-  const envPath = resolve(process.cwd(), '.env')
-  if (!existsSync(envPath)) return
-  for (const line of readFileSync(envPath, 'utf-8').split(/\r?\n/)) {
-    const eq = line.indexOf('=')
-    if (eq <= 0) continue
-    const key = line.slice(0, eq).trim()
-    const value = line.slice(eq + 1).trim()
-    if (key && value && process.env[key] === undefined) process.env[key] = value
+  try {
+    const envPath = resolve(process.cwd(), '.env')
+    if (!existsSync(envPath)) return
+    for (const line of readFileSync(envPath, 'utf-8').split(/\r?\n/)) {
+      const eq = line.indexOf('=')
+      if (eq <= 0) continue
+      const key = line.slice(0, eq).trim()
+      const value = line.slice(eq + 1).trim()
+      if (key && value && process.env[key] === undefined) process.env[key] = value
+    }
+  } catch {
+    /* no-op in serverless */
   }
 }
 loadEnvFile()

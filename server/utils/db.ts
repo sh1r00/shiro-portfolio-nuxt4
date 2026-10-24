@@ -9,8 +9,13 @@ const url = process.env.TURSO_DATABASE_URL || 'file:./server/data/portfolio.db'
 const authToken = process.env.TURSO_AUTH_TOKEN || ''
 
 // The local `file:` engine does not create parent directories — do it here.
+// (Guarded: Cloudflare Workers have no `fs`; prod uses the remote libsql:// branch.)
 if (url.startsWith('file:')) {
-  mkdirSync(dirname(resolve(process.cwd(), url.slice('file:'.length))), { recursive: true })
+  try {
+    mkdirSync(dirname(resolve(process.cwd(), url.slice('file:'.length))), { recursive: true })
+  } catch {
+    /* no-op in serverless */
+  }
 }
 
 const client = createClient(url.startsWith('libsql://') ? { url, authToken } : { url })
