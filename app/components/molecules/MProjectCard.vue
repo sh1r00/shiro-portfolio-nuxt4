@@ -13,7 +13,7 @@ defineProps<{
     <div class="relative rounded-2xl overflow-hidden bg-[var(--md-sys-color-surface-container)] transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
       <AImage v-if="thumbnail" :src="thumbnail" :alt="title" />
       <div v-else class="aspect-video flex items-center justify-center">
-        <span class="text-4xl opacity-20">🖼️</span>
+        <span class="opacity-20"><AIcon name="image" size="lg" /></span>
       </div>
 
       <div v-if="isLive" class="absolute top-3 right-3">

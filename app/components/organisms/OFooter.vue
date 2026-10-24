@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear()
         <!-- Brand -->
         <div class="text-center md:text-left">
           <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
-            <span class="text-xl">✨</span>
+            <AIcon name="auto_awesome" size="sm" />
             <span class="font-bold text-lg bg-gradient-to-r from-[var(--md-sys-color-primary)] to-[var(--md-sys-color-tertiary)] bg-clip-text text-transparent">shiro</span>
           </div>
           <p class="text-sm text-[var(--md-sys-color-on-surface-variant)]">

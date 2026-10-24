@@ -59,6 +59,14 @@
 - [x] `public/uploads/` gitignored (user data, not source).
 - **Verify:** `npm run build` clean; smoke test (login → upload → 200 image/png → traversal 404) passed.
 
+### Phase 10 — R2 uploads + tests + SEO + icon cleanup · ✅
+- [x] `POST /api/admin/upload` → Cloudflare R2 (S3-compatible) when `R2_*` env set (durable on Netlify); else local `public/` fallback. Magic-number validation (rejects renamed/polyglot files); SVG disallowed (XSS).
+- [x] `tests/unit/i18n-lockstep.test.ts` + `vitest.config.ts` — en/es/am key parity.
+- [x] `tests/e2e/smoke.spec.ts` + `playwright.config.ts` — login → dashboard + CRUD smoke.
+- [x] SEO: `useLocaleHead({ seo: true })` in `index.vue` (canonical + hreflang).
+- [x] Phase 7 (partial): emoji → `AIcon` material symbols (OStatsSection, OSkillsSection, MProjectCard, OFooter, ONavbar, admin layout).
+- **Verify:** `npm run build` clean; `test:unit` 2/2; smoke test (valid png 200 → fake jpg 400) passed.
+
 ## Verify
 - `npm run test:unit` (Vitest) + `npm run test:e2e` (Playwright) — add if the test dirs are missing.
 - `npm run build` — clean SSR output (was `generate`/SSG).

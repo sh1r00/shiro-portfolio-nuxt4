@@ -84,7 +84,7 @@ onMounted(() => loadItems())
         </div>
         <div>
           <label class="mb-1 block text-sm font-medium">Thumbnail (upload or path)</label>
-          <input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif" :disabled="uploading" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2 text-sm file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[var(--md-sys-color-primary-container)] file:px-3 file:py-1 file:text-[var(--md-sys-color-on-primary-container)]" @change="handleUpload" />
+          <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" :disabled="uploading" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2 text-sm file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[var(--md-sys-color-primary-container)] file:px-3 file:py-1 file:text-[var(--md-sys-color-on-primary-container)]" @change="handleUpload" />
           <input v-model="form.thumbnail" type="text" placeholder="/img/name.png (or auto-filled on upload)" class="mt-2 w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2 text-sm" />
           <img v-if="form.thumbnail" :src="form.thumbnail" alt="Thumbnail preview" class="mt-2 h-20 w-auto rounded-lg object-cover" />
         </div>

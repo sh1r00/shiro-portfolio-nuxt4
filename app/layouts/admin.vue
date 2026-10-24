@@ -26,7 +26,7 @@ async function handleLogout() {
             :aria-label="darkMode.isDark ? 'Light mode' : 'Dark mode'"
             @click="darkMode.toggle()"
           >
-            {{ darkMode.isDark ? '☀️' : '🌙' }}
+            <AIcon :name="darkMode.isDark ? 'light_mode' : 'dark_mode'" size="sm" />
           </button>
           <NuxtLink to="/" class="text-sm text-[var(--md-sys-color-primary)] hover:underline">View site</NuxtLink>
           <AButton variant="outlined" size="sm" @click="handleLogout">Logout</AButton>

@@ -27,6 +27,7 @@
     "not dead"
   ],
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1156.0",
     "@libsql/client": "^0.18.0",
     "@material/material-color-utilities": "^0.4.0",
     "@nuxtjs/i18n": "^10.4.0",

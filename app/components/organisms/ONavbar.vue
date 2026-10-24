@@ -27,7 +27,7 @@ function closeMobile() {
       <div class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="#home" class="flex items-center gap-2 font-bold text-xl text-[var(--md-sys-color-on-surface)] hover:text-[var(--md-sys-color-primary)] transition-colors">
-          <span class="text-2xl">✨</span>
+          <AIcon name="auto_awesome" size="md" />
           <span class="bg-gradient-to-r from-[var(--md-sys-color-primary)] to-[var(--md-sys-color-tertiary)] bg-clip-text text-transparent">shiro</span>
         </a>
 
@@ -53,7 +53,7 @@ function closeMobile() {
             :aria-label="darkMode.isDark ? t('theme.light') : t('theme.dark')"
             @click="toggleDark"
           >
-            <span class="text-xl">{{ darkMode.isDark ? '☀️' : '🌙' }}</span>
+            <AIcon :name="darkMode.isDark ? 'light_mode' : 'dark_mode'" size="sm" />
           </button>
 
           <!-- Mobile hamburger -->
@@ -62,7 +62,7 @@ function closeMobile() {
             aria-label="Toggle menu"
             @click="mobileOpen = !mobileOpen"
           >
-            <span class="text-xl">☰</span>
+            <AIcon name="menu" size="sm" />
           </button>
         </div>
       </div>

@@ -2,14 +2,14 @@
 const { t } = useI18n()
 
 const skills = [
-  { key: 'nuxt', icon: '🟢' },
-  { key: 'm3', icon: '🎨' },
-  { key: 'i18n', icon: '🌐' },
-  { key: 'security', icon: '🔒' },
-  { key: 'github', icon: '🐙' },
-  { key: 'netlify', icon: '🚀' },
-  { key: 'testing', icon: '🧪' },
-  { key: 'ai', icon: '🤖' },
+  { key: 'nuxt', icon: 'layers' },
+  { key: 'm3', icon: 'palette' },
+  { key: 'i18n', icon: 'language' },
+  { key: 'security', icon: 'lock' },
+  { key: 'github', icon: 'code' },
+  { key: 'netlify', icon: 'rocket_launch' },
+  { key: 'testing', icon: 'science' },
+  { key: 'ai', icon: 'smart_toy' },
 ]
 </script>
 
@@ -23,7 +23,7 @@ const skills = [
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         <ACard v-for="skill in skills" :key="skill.key" variant="outlined" padding="md" hover class="group">
-          <div class="text-3xl mb-4">{{ skill.icon }}</div>
+          <div class="mb-4"><AIcon :name="skill.icon" size="lg" /></div>
           <h3 class="text-lg font-bold text-[var(--md-sys-color-on-surface)] mb-2">{{ t(`skills.${skill.key}.name`) }}</h3>
           <p class="text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed">{{ t(`skills.${skill.key}.desc`) }}</p>
         </ACard>
