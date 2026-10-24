@@ -57,7 +57,10 @@
     "message": "Tu Mensaje",
     "send": "Enviar Mensaje",
     "success": "¡Mensaje enviado! Te responderé pronto.",
-    "error": "Algo salió mal. Inténtalo de nuevo."
+    "error": "Algo salió mal. Inténtalo de nuevo.",
+    "phone": "Teléfono",
+    "location": "Ubicación",
+    "mailto_cta": "Envíame un correo"
   },
   "about": {
     "title": "Sobre shiro",

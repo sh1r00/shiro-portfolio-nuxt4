@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const { content } = useContent()
+
+const bio = computed(() => content.value.about_bio || t('about.bio'))
+const email = computed(() => content.value.contact_email || 'joedoe98210@gmail.com')
 
 const aboutStats = [
   { value: '16+', key: 'projects' },
@@ -25,12 +29,12 @@ const aboutStats = [
             <p class="text-[var(--md-sys-color-on-surface-variant)] mt-1">{{ t('about.role') }}</p>
             <div class="flex gap-3 mt-4 justify-center md:justify-start">
               <a href="https://github.com/sh1r00" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-primary)] hover:text-[var(--md-sys-color-on-primary)] transition-all text-sm font-semibold">🐙 {{ t('about.github') }}</a>
-              <a href="mailto:rasisg@gmail.com" class="px-4 py-2 rounded-lg bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-primary)] hover:text-[var(--md-sys-color-on-primary)] transition-all text-sm font-semibold">📧 {{ t('about.email') }}</a>
+              <a :href="`mailto:${email}`" class="px-4 py-2 rounded-lg bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface-variant)] hover:bg-[var(--md-sys-color-primary)] hover:text-[var(--md-sys-color-on-primary)] transition-all text-sm font-semibold">📧 {{ t('about.email') }}</a>
             </div>
           </div>
         </div>
 
-        <p class="text-[var(--md-sys-color-on-surface-variant)] leading-relaxed mt-8">{{ t('about.bio') }}</p>
+        <p class="text-[var(--md-sys-color-on-surface-variant)] leading-relaxed mt-8">{{ bio }}</p>
 
         <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <ACard v-for="s in aboutStats" :key="s.key" variant="filled" padding="sm" class="bg-[var(--md-sys-color-surface)]">

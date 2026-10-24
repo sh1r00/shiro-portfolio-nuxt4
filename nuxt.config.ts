@@ -74,7 +74,11 @@ export default defineNuxtConfig({
       ],
     },
     workbox: {
-      globPatterns: ['**/*.{js,css,html,png,svg,ico,webp,woff2}'],
+      // SSR has no precached index.html — a navigateFallback to "/" would throw
+      // "non-precached-url" and blank the page. Disable navigation fallback so the
+      // server renders every route; the SW only precaches static assets.
+      navigateFallback: null,
+      globPatterns: ['**/*.{js,css,png,svg,ico,webp,woff2}'],
     },
   },
 })

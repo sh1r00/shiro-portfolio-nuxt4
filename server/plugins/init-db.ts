@@ -46,6 +46,14 @@ const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'tem
   { title: 'Urban Ride Bikes', url: 'https://bike-store-sh1r00-817.netlify.app', thumbnail: '', kind: 'template' },
 ]
 
+// Editable site copy — About Us wording + Contact Us info (key-value store).
+const CONTENT_SEED: { key: string; value: string }[] = [
+  { key: 'about_bio', value: 'I build fast, accessible web experiences with Nuxt 4, Vue 3, and a sharp eye for design — from concept to deployment.' },
+  { key: 'contact_email', value: 'joedoe98210@gmail.com' },
+  { key: 'contact_phone', value: '' },
+  { key: 'contact_location', value: '' },
+]
+
 export default defineNitroPlugin(async () => {
   // Fail fast in production if the session secret is still the insecure default.
   const secret = getAdminSecret()
@@ -78,6 +86,11 @@ export default defineNitroPlugin(async () => {
     created_at INTEGER NOT NULL
   )`)
 
+  await exec(`CREATE TABLE IF NOT EXISTS site_content (
+    key TEXT PRIMARY KEY,
+    value TEXT NOT NULL DEFAULT ''
+  )`)
+
   // Seed works if empty (idempotent — never overwrites admin edits).
   const count = (await get<{ n: number }>('SELECT COUNT(*) AS n FROM portfolio_items'))?.n ?? 0
   if (count === 0) {
@@ -98,6 +111,14 @@ export default defineNitroPlugin(async () => {
     if (username && password) {
       const hash = bcrypt.hashSync(password, 12)
       await run('INSERT INTO admin_users (username, password_hash) VALUES (?, ?)', [username, hash])
+    }
+  }
+
+  // Seed editable site content if empty (idempotent).
+  const contentCount = (await get<{ n: number }>('SELECT COUNT(*) AS n FROM site_content'))?.n ?? 0
+  if (contentCount === 0) {
+    for (const c of CONTENT_SEED) {
+      await run('INSERT INTO site_content (key, value) VALUES (?, ?)', [c.key, c.value])
     }
   }
 })

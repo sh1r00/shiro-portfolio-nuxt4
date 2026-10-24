@@ -18,6 +18,14 @@ const fmt = (ts: number) => new Date(ts).toLocaleString()
     </section>
 
     <section>
+      <h2 class="mb-4 text-xl font-bold">Site content</h2>
+      <p class="mb-6 text-sm text-[var(--md-sys-color-on-surface-variant)]">
+        Editable About Us wording and Contact Us info (email, phone, location).
+      </p>
+      <OAdminContent />
+    </section>
+
+    <section>
       <h2 class="mb-4 text-xl font-bold">Inquiries</h2>
       <p v-if="!inquiries.length" class="text-sm text-[var(--md-sys-color-on-surface-variant)]">No inquiries yet.</p>
       <ul v-else class="space-y-3">

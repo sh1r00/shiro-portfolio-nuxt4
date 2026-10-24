@@ -81,7 +81,10 @@
     "message": "Your Message",
     "send": "Send Message",
     "success": "Message sent! I'll get back to you soon.",
-    "error": "Something went wrong. Please try again."
+    "error": "Something went wrong. Please try again.",
+    "phone": "Phone",
+    "location": "Location",
+    "mailto_cta": "Email me directly"
   },
   "about": {
     "title": "About shiro",
