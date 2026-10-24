@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const localePath = useLocalePath()
 const darkMode = useDarkModeStore()
 
 const navItems = [
@@ -8,7 +7,7 @@ const navItems = [
   { key: 'skills', href: '#skills' },
   { key: 'works', href: '#works' },
   { key: 'screenshots', href: '#screenshots' },
-  { key: 'contact', to: '/contact' },
+  { key: 'contact', href: '#contact' },
 ]
 
 const mobileOpen = ref(false)
@@ -34,14 +33,14 @@ function closeMobile() {
 
         <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-1">
-          <template v-for="item in navItems" :key="item.key">
-            <NuxtLink v-if="item.to" :to="localePath(item.to)" class="px-4 py-2 text-sm font-medium rounded-full text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all">
-              {{ t(`nav.${item.key}`) }}
-            </NuxtLink>
-            <a v-else :href="item.href" class="px-4 py-2 text-sm font-medium rounded-full text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all">
-              {{ t(`nav.${item.key}`) }}
-            </a>
-          </template>
+          <a
+            v-for="item in navItems"
+            :key="item.key"
+            :href="item.href"
+            class="px-4 py-2 text-sm font-medium rounded-full text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all"
+          >
+            {{ t(`nav.${item.key}`) }}
+          </a>
         </div>
 
         <!-- Right side -->
@@ -70,14 +69,15 @@ function closeMobile() {
 
       <!-- Mobile menu -->
       <div v-if="mobileOpen" class="md:hidden py-4 border-t border-[var(--md-sys-color-outline-variant)]">
-        <template v-for="item in navItems" :key="item.key">
-          <NuxtLink v-if="item.to" :to="localePath(item.to)" class="block px-4 py-3 text-sm font-medium rounded-xl text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all" @click="closeMobile">
-            {{ t(`nav.${item.key}`) }}
-          </NuxtLink>
-          <a v-else :href="item.href" class="block px-4 py-3 text-sm font-medium rounded-xl text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all" @click="closeMobile">
-            {{ t(`nav.${item.key}`) }}
-          </a>
-        </template>
+        <a
+          v-for="item in navItems"
+          :key="item.key"
+          :href="item.href"
+          class="block px-4 py-3 text-sm font-medium rounded-xl text-[var(--md-sys-color-on-surface-variant)] hover:text-[var(--md-sys-color-on-surface)] hover:bg-[var(--md-sys-color-surface-container)] transition-all"
+          @click="closeMobile"
+        >
+          {{ t(`nav.${item.key}`) }}
+        </a>
       </div>
     </nav>
   </header>
