@@ -8,6 +8,28 @@ const showForm = ref(false)
 const saving = ref(false)
 const form = reactive({ title: '', url: '', thumbnail: '', kind: 'template' as 'live' | 'template', sort_order: 0 })
 
+const toast = useToastStore()
+const uploading = ref(false)
+
+async function handleUpload(e: Event) {
+  const input = e.target as HTMLInputElement
+  const file = input.files?.[0]
+  if (!file) return
+  uploading.value = true
+  try {
+    const fd = new FormData()
+    fd.append('file', file)
+    const res = await $fetch<{ path: string }>('/api/admin/upload', { method: 'POST', credentials: 'include', body: fd })
+    form.thumbnail = res.path
+    toast.success('Thumbnail uploaded')
+  } catch (err: any) {
+    toast.error(err?.data?.statusMessage || 'Upload failed')
+  } finally {
+    uploading.value = false
+    input.value = ''
+  }
+}
+
 function openCreate() {
   Object.assign(form, { title: '', url: '', thumbnail: '', kind: 'template', sort_order: 0 })
   editing.value = null
@@ -61,8 +83,10 @@ onMounted(() => loadItems())
           <input v-model="form.url" type="url" required placeholder="https://…" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2" />
         </div>
         <div>
-          <label class="mb-1 block text-sm font-medium">Thumbnail path (optional)</label>
-          <input v-model="form.thumbnail" type="text" placeholder="/img/name.png" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2" />
+          <label class="mb-1 block text-sm font-medium">Thumbnail (upload or path)</label>
+          <input type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml,image/gif" :disabled="uploading" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2 text-sm file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-[var(--md-sys-color-primary-container)] file:px-3 file:py-1 file:text-[var(--md-sys-color-on-primary-container)]" @change="handleUpload" />
+          <input v-model="form.thumbnail" type="text" placeholder="/img/name.png (or auto-filled on upload)" class="mt-2 w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2 text-sm" />
+          <img v-if="form.thumbnail" :src="form.thumbnail" alt="Thumbnail preview" class="mt-2 h-20 w-auto rounded-lg object-cover" />
         </div>
         <div class="grid grid-cols-2 gap-3">
           <div>

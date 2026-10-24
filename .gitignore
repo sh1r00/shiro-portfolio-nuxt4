@@ -13,5 +13,8 @@ public/dist/
 # Local SQLite dev database (libSQL file: mode)
 server/data/
 
+# Runtime-uploaded thumbnails (user data, not source)
+public/uploads/
+
 # Local Netlify folder
 .netlify

@@ -52,6 +52,13 @@
 - [x] Toast system (`stores/toast.ts` + `OToast`/`MToast`) for loud error visibility.
 - **Verify:** `npm run build` clean; runtime smoke test passed (seed 4 live + 12 templates → session 401 → login ok).
 
+### Phase 9 — Admin thumbnail upload (public/uploads + path in DB) · ✅
+- [x] `POST /api/admin/upload` — multipart → `public/uploads/` (png/jpg/webp/svg/gif, ≤2MB), returns `/uploads/<name>`.
+- [x] `server/routes/uploads/[...path].get.ts` — serves runtime uploads (Nitro only serves build-time `public/`), with path-traversal guard.
+- [x] `OAdminItems` — file input (upload → auto-fill `thumbnail` path) + live preview; path persists to `portfolio_items.thumbnail`.
+- [x] `public/uploads/` gitignored (user data, not source).
+- **Verify:** `npm run build` clean; smoke test (login → upload → 200 image/png → traversal 404) passed.
+
 ## Verify
 - `npm run test:unit` (Vitest) + `npm run test:e2e` (Playwright) — add if the test dirs are missing.
 - `npm run build` — clean SSR output (was `generate`/SSG).
