@@ -6,7 +6,7 @@ const bio = computed(() => content.value.about_bio || t('about.bio'))
 const email = computed(() => content.value.contact_email || 'joedoe98210@gmail.com')
 
 const aboutStats = [
-  { value: '16+', key: 'projects' },
+  { value: '19', key: 'projects' },
   { value: '5', key: 'categories' },
   { value: '3', key: 'languages' },
   { value: '∞', key: 'detail' },

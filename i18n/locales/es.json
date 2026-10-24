@@ -8,15 +8,39 @@
   },
   "skills": {
     "title": "Habilidades y Experiencia",
-    "subtitle": "Tecnologías con las que trabajo a diario",
-    "nuxt": { "name": "Nuxt 4 y Vue 3", "desc": "Experiencia en migración completa, SSR/generación estática, estado Pinia, composables e integración i18n (en/es/am)" },
-    "m3": { "name": "Sistema de Diseño M3", "desc": "Arquitectura de diseño atómico (átomos/moléculas/organismos), estética M3 viral y modo oscuro sin interrupciones" },
-    "i18n": { "name": "i18n y Accesibilidad", "desc": "Soporte multi-idioma (3 idiomas), WCAG 2.1, navegación skip-to-content y etiquetas ARIA completas" },
-    "security": { "name": "Seguridad y PWA", "desc": "Cabeceras CSP, protección XSS, service workers offline-first y prácticas de despliegue seguras" },
-    "github": { "name": "GitHub y CI/CD", "desc": "Gestión de repositorios por lotes, autenticación SSH y orquestación de 16+ repositorios con flujos automatizados" },
-    "netlify": { "name": "Netlify y Heroku", "desc": "Despliegues de sitios estáticos, subidas de API por zip y configuración y despliegue de servidores backend" },
-    "testing": { "name": "Testing y QA", "desc": "Pruebas unitarias Vitest, pruebas E2E Playwright y controles de calidad sin errores de consola" },
-    "ai": { "name": "Automatización con Agentes IA", "desc": "Skills de Hermes Agent, programación cron, delegación multi-agente y flujos de ejecución por lotes" }
+    "subtitle": "El stack completo detrás de 19 proyectos",
+    "nuxt": {
+      "name": "Nuxt 4 y Vue 3",
+      "desc": "Apps full-stack con SSR, SSG e ISR — diseño atómico, estado Pinia e i18n de 3 idiomas."
+    },
+    "m3": {
+      "name": "Sistema de Diseño M3",
+      "desc": "Arquitectura atómica (átomos/moléculas/organismos), estética M3 viral y modo oscuro fluido."
+    },
+    "i18n": {
+      "name": "i18n y Accesibilidad",
+      "desc": "Sitios multi-idioma (en/es/am), WCAG 2.1, skip-nav y etiquetas ARIA completas."
+    },
+    "backend": {
+      "name": "Backend y Bases de Datos",
+      "desc": "APIs Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase (RLS), SQLite y Turso/libSQL."
+    },
+    "payments": {
+      "name": "Pagos y E-commerce",
+      "desc": "Checkout con Stripe + Chapa/PayPal, paquetes de créditos y Shopify Storefront (GraphQL)."
+    },
+    "security": {
+      "name": "Seguridad y PWA",
+      "desc": "CSP de nuxt-security, RLS de mínimo privilegio, sesiones bcrypt y service workers offline-first."
+    },
+    "ai": {
+      "name": "IA y Automatización",
+      "desc": "Pipelines OpenAI + Google Ads y automatización con Hermes agents (cron + multi-agente)."
+    },
+    "cloud": {
+      "name": "Cloud, CI/CD y Testing",
+      "desc": "Netlify, Render, Vercel, Heroku, Cloudflare R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
+    }
   },
   "works": {
     "title": "Mi Trabajo",
@@ -64,12 +88,12 @@
   },
   "about": {
     "title": "Sobre shiro",
-    "subtitle": "Un desarrollador. 16+ proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
+    "subtitle": "Un desarrollador. 19 proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
     "name": "sh1r00",
     "role": "Desarrollador Full-Stack e Ingeniero de Diseño",
     "github": "GitHub",
     "email": "Correo",
-    "bio": "shiro es un desarrollador full-stack independiente especializado en Nuxt 4, Vue 3, Hapi.js y diseño M3. Con más de 16 proyectos desplegados en Netlify y Heroku, cada sitio se construye con arquitectura de rendimiento primero, estética viral, cumplimiento de accesibilidad y controles de calidad sin errores de consola. Desde plantillas de restaurantes de alta cocina hasta paneles fintech, desde PWA de comercio electrónico hasta generadores de marketing impulsados por IA — shiro entrega código listo para producción que convierte.",
+    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 19 proyectos entregados — 7 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues sin interrupciones en Netlify, Render, Vercel y Heroku.",
     "stats_projects": "Proyectos Desplegados",
     "stats_categories": "Categorías de Proyecto",
     "stats_languages": "Idiomas",

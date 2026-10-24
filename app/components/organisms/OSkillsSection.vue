@@ -5,11 +5,11 @@ const skills = [
   { key: 'nuxt', icon: 'layers' },
   { key: 'm3', icon: 'palette' },
   { key: 'i18n', icon: 'language' },
+  { key: 'backend', icon: 'storage' },
+  { key: 'payments', icon: 'payments' },
   { key: 'security', icon: 'lock' },
-  { key: 'github', icon: 'code' },
-  { key: 'netlify', icon: 'rocket_launch' },
-  { key: 'testing', icon: 'science' },
   { key: 'ai', icon: 'smart_toy' },
+  { key: 'cloud', icon: 'cloud' },
 ]
 </script>
 

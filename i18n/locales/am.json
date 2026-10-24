@@ -8,15 +8,39 @@
   },
   "skills": {
     "title": "ችሎታዎች እና እውቀት",
-    "subtitle": "በየቀኑ የምሰራባቸው ቴክኖሎጂዎች",
-    "nuxt": { "name": "Nuxt 4 እና Vue 3", "desc": "ሙሉ የፍልሰት እውቀት፣ SSR/static generation፣ Pinia state፣ composables እና i18n ውህደት (en/es/am)" },
-    "m3": { "name": "M3 ዲዛይን ሲስተም", "desc": "Atomic ዲዛይን አርክቴክቸር (atoms/molecules/organisms)፣ viral M3 ውበት እና ጥሩ የጨለማ ሁነታ" },
-    "i18n": { "name": "i18n እና ተደራሽነት", "desc": "ባለብዙ ቋንቋ ድጋፍ (3 ቋንቋዎች)፣ WCAG 2.1፣ skip-to-content እና ሙሉ ARIA መለያዎች" },
-    "security": { "name": "ደህንነት እና PWA", "desc": "CSP ራስጌዎች፣ XSS ጥበቃ፣ offline-first service workers እና ደህንነቱ የተጠበቀ ማሰማራት" },
-    "github": { "name": "GitHub እና CI/CD", "desc": "ባች የሪፖዚቶሪ አስተዳደር፣ SSH ማረጋገጫ እና የ16+ ሪፖዚቶሪዎች በራስ-ሰር ፍሰቶች" },
-    "netlify": { "name": "Netlify እና Heroku", "desc": "Static ድረ-ገጾች ማሰማራት፣ API zip ጭነቶች እና የbackend አገልጋይ ውቅር" },
-    "testing": { "name": "Testing እና QA", "desc": "Vitest unit ሙከራዎች፣ Playwright E2E እና ዜሮ-ኮንሶል-ስህተት የጥራት ቁጥጥር" },
-    "ai": { "name": "AI Agent አውቶሜሽን", "desc": "Hermes Agent skills፣ cron መርሐግብር፣ multi-agent ውክልና እና ባች የስራ ፍሰቶች" }
+    "subtitle": "ከ19 የተሰማሩ ፕሮጀክቶች በስተጀርባ ያለው ሙሉ ቁልል",
+    "nuxt": {
+      "name": "Nuxt 4 እና Vue 3",
+      "desc": "SSR፣ SSG እና ISR ያላቸው ሙሉ-ቁልል መተግበሪያዎች — atomic ዲዛይን፣ Pinia እና ባለ3-ቋንቋ i18n።"
+    },
+    "m3": {
+      "name": "M3 ዲዛይን ሲስተም",
+      "desc": "Atomic አርክቴክቸር (atoms/molecules/organisms)፣ viral M3 ውበት እና ጥሩ የጨለማ ሁነታ።"
+    },
+    "i18n": {
+      "name": "i18n እና ተደራሽነት",
+      "desc": "ባለብዙ ቋንቋ ጣቢያዎች (en/es/am)፣ WCAG 2.1፣ skip-nav እና ሙሉ ARIA መለያዎች።"
+    },
+    "backend": {
+      "name": "Backend እና ዳታቤዝ",
+      "desc": "Hapi.js APIs፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase (RLS)፣ SQLite እና Turso/libSQL።"
+    },
+    "payments": {
+      "name": "ክፍያዎች እና E-commerce",
+      "desc": "Stripe + Chapa/PayPal checkout፣ የክሬዲት ጥቅሎች እና Shopify Storefront (GraphQL)።"
+    },
+    "security": {
+      "name": "ደህንነት እና PWA",
+      "desc": "nuxt-security CSP፣ RLS ዝቅተኛ-ልዩነት፣ bcrypt ክፍለ-ጊዜዎች እና offline-first service workers።"
+    },
+    "ai": {
+      "name": "AI እና አውቶሜሽን",
+      "desc": "OpenAI + Google Ads ፓይፕላይኖች እና Hermes agent አውቶሜሽን (cron + multi-agent)።"
+    },
+    "cloud": {
+      "name": "Cloud፣ CI/CD እና Testing",
+      "desc": "Netlify፣ Render፣ Vercel፣ Heroku፣ Cloudflare R2፣ AWS S3 — Vitest/Playwright፣ Lighthouse >90።"
+    }
   },
   "works": {
     "title": "ስራዬ",
@@ -64,12 +88,12 @@
   },
   "about": {
     "title": "ስለ shiro",
-    "subtitle": "አንድ ገንቢ። 16+ ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
+    "subtitle": "አንድ ገንቢ። 19 ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
     "name": "sh1r00",
     "role": "ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ",
     "github": "GitHub",
     "email": "ኢሜይል",
-    "bio": "shiro በNuxt 4፣ Vue 3፣ Hapi.js እና M3 ዲዛይን የተካነ ብቸኛ ሙሉ-ቁልል ገንቢ ነው። ከ16 በላይ ፕሮጀክቶች በNetlify እና Heroku ላይ የተሰማሩ ሲሆን፣ እያንዳንዱ ጣቢያ በአፈጻጸም-መጀመሪያ አርክቴክቸር፣ በviral ውበት፣ በተደራሽነት ተገዢነት እና በዜሮ-ኮንሶል-ስህተት የጥራት ቁጥጥር ይገነባል።",
+    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 19 ፕሮጀክቶች ተሰርተዋል — 7 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በNetlify፣ Render፣ Vercel እና Heroku ላይ ያለማቋረጥ ማሰማራት።",
     "stats_projects": "የተሰማሩ ፕሮጀክቶች",
     "stats_categories": "የፕሮጀክት ምድቦች",
     "stats_languages": "ቋንቋዎች",

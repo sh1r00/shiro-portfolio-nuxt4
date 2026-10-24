@@ -8,38 +8,38 @@
   },
   "skills": {
     "title": "Skills & Expertise",
-    "subtitle": "Technologies I work with daily",
+    "subtitle": "The full stack behind 19 shipped projects",
     "nuxt": {
       "name": "Nuxt 4 & Vue 3",
-      "desc": "Full migration expertise, SSR/static generation, Pinia state management, composables, and i18n integration (en/es/am)"
+      "desc": "Full-stack apps with SSR, SSG, and ISR — atomic design, Pinia state, and 3-locale i18n."
     },
     "m3": {
       "name": "M3 Design System",
-      "desc": "Atomic design architecture (atoms/molecules/organisms), viral M3 aesthetics, and seamless dark mode implementation"
+      "desc": "Atomic architecture (atoms/molecules/organisms), viral M3 aesthetics, and seamless dark mode."
     },
     "i18n": {
       "name": "i18n & Accessibility",
-      "desc": "Multi-locale support (3 languages), WCAG 2.1 compliant, skip-to-content navigation, and comprehensive ARIA labels"
+      "desc": "Multi-locale sites (en/es/am), WCAG 2.1 compliance, skip-nav, and full ARIA labels."
+    },
+    "backend": {
+      "name": "Backend & Databases",
+      "desc": "Hapi.js APIs, PostgreSQL/PostGIS, MongoDB, Supabase (RLS), SQLite, and Turso/libSQL."
+    },
+    "payments": {
+      "name": "Payments & E-commerce",
+      "desc": "Stripe + Chapa/PayPal checkout, credit packs, and Shopify Storefront (GraphQL)."
     },
     "security": {
       "name": "Security & PWA",
-      "desc": "Content Security Policy headers, XSS protection, offline-first service workers, and secure deployment practices"
-    },
-    "github": {
-      "name": "GitHub & CI/CD",
-      "desc": "Batch repository management, SSH authentication, and orchestration of 16+ repositories with automated workflows"
-    },
-    "netlify": {
-      "name": "Netlify & Heroku",
-      "desc": "Static site deployments, API zip uploads, and backend server configuration and deployment"
-    },
-    "testing": {
-      "name": "Testing & QA",
-      "desc": "Vitest unit tests, Playwright end-to-end testing, and zero-console-error quality gates for production"
+      "desc": "nuxt-security CSP, RLS least-privilege, bcrypt sessions, and offline-first service workers."
     },
     "ai": {
-      "name": "AI Agent Automation",
-      "desc": "Hermes Agent skills, cron job scheduling, multi-agent delegation, and batch project execution workflows"
+      "name": "AI & Automation",
+      "desc": "OpenAI + Google Ads pipelines and Hermes agent automation (cron + multi-agent)."
+    },
+    "cloud": {
+      "name": "Cloud, CI/CD & Testing",
+      "desc": "Netlify, Render, Vercel, Heroku, Cloudflare R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
     }
   },
   "works": {
@@ -88,12 +88,12 @@
   },
   "about": {
     "title": "About shiro",
-    "subtitle": "One developer. 16+ projects. Endless passion for clean code and beautiful design.",
+    "subtitle": "One developer. 19 projects. Endless passion for clean code and beautiful design.",
     "name": "sh1r00",
     "role": "Full-Stack Developer & Design Engineer",
     "github": "GitHub",
     "email": "Email",
-    "bio": "shiro is a solo full-stack developer specializing in Nuxt 4, Vue 3, Hapi.js, and M3 Design. With 16+ projects deployed across Netlify and Heroku, every site is built with performance-first architecture, viral aesthetics, accessibility compliance, and zero-console-error quality gates. From restaurant fine-dining templates to fintech dashboards, from e-commerce PWAs to AI-powered marketing generators — shiro delivers production-ready code that converts.",
+    "bio": "shiro is a solo full-stack developer and design engineer. 19 projects shipped — 7 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and zero-downtime deploys on Netlify, Render, Vercel, and Heroku.",
     "stats_projects": "Projects Deployed",
     "stats_categories": "Project Categories",
     "stats_languages": "Languages",
