@@ -25,3 +25,6 @@ Nuxt 4 (SSR) · Vue 3 · Tailwind v4 · @nuxtjs/i18n · @vite-pwa/nuxt · nuxt-s
 
 ## Deployment
 Netlify SSR (`nuxi build --preset netlify`, publish `dist`), Node 24, `--legacy-peer-deps`.
+
+## TODO / Roadmap
+- [ ] Point a custom domain (optional) — for client-facing work; a single wildcard domain can cover all sites.
