@@ -39,7 +39,7 @@
     },
     "cloud": {
       "name": "Cloud፣ CI/CD እና Testing",
-      "desc": "Netlify፣ Render፣ Vercel፣ Heroku፣ Cloudflare R2፣ AWS S3 — Vitest/Playwright፣ Lighthouse >90።"
+      "desc": "Cloudflare Pages + Workers፣ Netlify፣ Render፣ Vercel፣ Heroku፣ R2፣ AWS S3 — Vitest/Playwright፣ Lighthouse >90።"
     }
   },
   "works": {
@@ -93,7 +93,7 @@
     "role": "ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ",
     "github": "GitHub",
     "email": "ኢሜይል",
-    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 19 ፕሮጀክቶች ተሰርተዋል — 7 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በNetlify፣ Render፣ Vercel እና Heroku ላይ ያለማቋረጥ ማሰማራት።",
+    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 19 ፕሮጀክቶች ተሰርተዋል — 7 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በCloudflare Pages፣ Netlify፣ Render እና Vercel ላይ ያለማቋረጥ ማሰማራት።",
     "stats_projects": "የተሰማሩ ፕሮጀክቶች",
     "stats_categories": "የፕሮጀክት ምድቦች",
     "stats_languages": "ቋንቋዎች",

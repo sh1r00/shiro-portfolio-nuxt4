@@ -39,7 +39,7 @@
     },
     "cloud": {
       "name": "Cloud, CI/CD y Testing",
-      "desc": "Netlify, Render, Vercel, Heroku, Cloudflare R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
+      "desc": "Cloudflare Pages + Workers, Netlify, Render, Vercel, Heroku, R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
     }
   },
   "works": {
@@ -93,7 +93,7 @@
     "role": "Desarrollador Full-Stack e Ingeniero de Diseño",
     "github": "GitHub",
     "email": "Correo",
-    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 19 proyectos entregados — 7 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues sin interrupciones en Netlify, Render, Vercel y Heroku.",
+    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 19 proyectos entregados — 7 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues sin interrupciones en Cloudflare Pages, Netlify, Render y Vercel.",
     "stats_projects": "Proyectos Desplegados",
     "stats_categories": "Categorías de Proyecto",
     "stats_languages": "Idiomas",

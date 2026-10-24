@@ -39,7 +39,7 @@
     },
     "cloud": {
       "name": "Cloud, CI/CD & Testing",
-      "desc": "Netlify, Render, Vercel, Heroku, Cloudflare R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
+      "desc": "Cloudflare Pages + Workers, Netlify, Render, Vercel, Heroku, R2, AWS S3 — Vitest/Playwright, Lighthouse >90."
     }
   },
   "works": {
@@ -93,7 +93,7 @@
     "role": "Full-Stack Developer & Design Engineer",
     "github": "GitHub",
     "email": "Email",
-    "bio": "shiro is a solo full-stack developer and design engineer. 19 projects shipped — 7 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and zero-downtime deploys on Netlify, Render, Vercel, and Heroku.",
+    "bio": "shiro is a solo full-stack developer and design engineer. 19 projects shipped — 7 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and zero-downtime deploys on Cloudflare Pages, Netlify, Render, and Vercel.",
     "stats_projects": "Projects Deployed",
     "stats_categories": "Project Categories",
     "stats_languages": "Languages",
