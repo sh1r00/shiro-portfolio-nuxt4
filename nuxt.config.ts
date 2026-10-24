@@ -4,6 +4,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-01',
   modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@vite-pwa/nuxt', 'nuxt-security'],
   css: ['~/assets/css/main.css'],
+  // Auto-import app/components/{atoms,molecules,organisms} by filename only
+  // (ABadge, OHeroSection, …) — without this the dir becomes a prefix
+  // (OrganismsOHeroSection) and every section silently renders empty.
+  components: [{ path: '~/components', pathPrefix: false }],
   vite: { plugins: [tailwindcss()] },
   i18n: {
     strategy: 'prefix_except_default',
