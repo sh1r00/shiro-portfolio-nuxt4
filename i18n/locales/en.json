@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "Skills & Expertise",
-    "subtitle": "The full stack behind 19 shipped projects",
+    "subtitle": "The full stack behind 20 shipped projects",
     "nuxt": {
       "name": "Nuxt 4 & Vue 3",
       "desc": "Full-stack apps with SSR, SSG, and ISR — atomic design, Pinia state, and 3-locale i18n."
@@ -51,6 +51,12 @@
     "live_projects_desc": "Production applications",
     "live_badge": "LIVE",
     "view_site": "View Site",
+    "spotlight_label": "Deployment case study",
+    "spotlight_title": "Dice Arena",
+    "spotlight_summary": "A Nuxt 4 web app deployed on Cloudflare Workers and backed by Neon Postgres.",
+    "spotlight_architecture": "Architecture: Nitro-generated Wrangler config → Worker → Hyperdrive → Neon Postgres; Better Auth + Drizzle.",
+    "spotlight_lesson": "Migrations use the direct, unpooled database URL; Worker runtime traffic uses Hyperdrive. The Better Auth rate_limit.id schema mismatch was fixed before deployment.",
+    "spotlight_checks": "App routes and a separate Neon hello Function were smoke-tested. The private assets bucket is provisioned separately and is not an app runtime dependency.",
     "screenshots": "Screenshots",
     "screenshots_desc": "Project previews"
   },
@@ -88,12 +94,12 @@
   },
   "about": {
     "title": "About shiro",
-    "subtitle": "One developer. 19 projects. Endless passion for clean code and beautiful design.",
+    "subtitle": "One developer. 20 projects. Endless passion for clean code and beautiful design.",
     "name": "sh1r00",
     "role": "Full-Stack Developer & Design Engineer",
     "github": "GitHub",
     "email": "Email",
-    "bio": "shiro is a solo full-stack developer and design engineer. 19 projects shipped — 7 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and zero-downtime deploys on Cloudflare Pages, Netlify, Render, and Vercel.",
+    "bio": "shiro is a solo full-stack developer and design engineer. 20 projects shipped — 8 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and deployments on Cloudflare Workers, Cloudflare Pages, Netlify, Render, and Vercel.",
     "stats_projects": "Projects Deployed",
     "stats_categories": "Project Categories",
     "stats_languages": "Languages",

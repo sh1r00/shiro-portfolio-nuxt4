@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "ችሎታዎች እና እውቀት",
-    "subtitle": "ከ19 የተሰማሩ ፕሮጀክቶች በስተጀርባ ያለው ሙሉ ቁልል",
+    "subtitle": "ከ20 የተሰማሩ ፕሮጀክቶች በስተጀርባ ያለው ሙሉ ቁልል",
     "nuxt": {
       "name": "Nuxt 4 እና Vue 3",
       "desc": "SSR፣ SSG እና ISR ያላቸው ሙሉ-ቁልል መተግበሪያዎች — atomic ዲዛይን፣ Pinia እና ባለ3-ቋንቋ i18n።"
@@ -51,6 +51,12 @@
     "live_projects_desc": "የምርት መተግበሪያዎች",
     "live_badge": "ቀጥታ",
     "view_site": "ጣቢያ ይመልከቱ",
+    "spotlight_label": "የማሰማራት ጥናት",
+    "spotlight_title": "Dice Arena",
+    "spotlight_summary": "በNuxt 4 የተገነባ የድር መተግበሪያ፣ በCloudflare Workers ላይ የተሰማራ እና በNeon Postgres የተደገፈ።",
+    "spotlight_architecture": "አርክቴክቸር፡ Nitro የፈጠረው Wrangler ውቅር → Worker → Hyperdrive → Neon Postgres፤ Better Auth + Drizzle።",
+    "spotlight_lesson": "ማይግሬሽኖች ቀጥተኛ፣ pooling የሌለውን የዳታቤዝ URL ይጠቀማሉ፤ Worker በruntime Hyperdrive ይጠቀማል። ከdeployment በፊት የBetter Auth rate_limit.id ስኪማ አለመዛመድ ተስተካክሏል።",
+    "spotlight_checks": "የመተግበሪያ ራውቶች እና የተለየ Neon hello Function ተፈትሸዋል። የግል assets bucket ተለይቶ ተዘጋጅቷል እና የመተግበሪያው የruntime ጥገኝነት አይደለም።",
     "screenshots": "ቅጽበተ-ፎቶዎች",
     "screenshots_desc": "የፕሮጀክት ቅድመ እይታዎች"
   },
@@ -88,12 +94,12 @@
   },
   "about": {
     "title": "ስለ shiro",
-    "subtitle": "አንድ ገንቢ። 19 ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
+    "subtitle": "አንድ ገንቢ። 20 ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
     "name": "sh1r00",
     "role": "ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ",
     "github": "GitHub",
     "email": "ኢሜይል",
-    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 19 ፕሮጀክቶች ተሰርተዋል — 7 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በCloudflare Pages፣ Netlify፣ Render እና Vercel ላይ ያለማቋረጥ ማሰማራት።",
+    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 20 ፕሮጀክቶች ተሰርተዋል — 8 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በCloudflare Workers፣ Cloudflare Pages፣ Netlify፣ Render እና Vercel ላይ ማሰማራት።",
     "stats_projects": "የተሰማሩ ፕሮጀክቶች",
     "stats_categories": "የፕሮጀክት ምድቦች",
     "stats_languages": "ቋንቋዎች",

@@ -26,5 +26,14 @@ Nuxt 4 (SSR) · Vue 3 · Tailwind v4 · @nuxtjs/i18n · @vite-pwa/nuxt · nuxt-s
 ## Deployment
 Netlify SSR (`nuxi build --preset netlify`, publish `dist`), Node 24, `--legacy-peer-deps`.
 
+## Featured Project: Dice Arena
+Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's generated Wrangler configuration. The Worker connects to Neon Postgres through a Hyperdrive binding; Better Auth and Drizzle provide authentication and database access.
+
+### Architecture and operational lessons
+- Use the direct, unpooled database URL for Drizzle migrations, and the Hyperdrive binding for application runtime traffic.
+- Align Better Auth's `rate_limit.id` column with the Drizzle schema before applying migrations.
+- Keep the paid-only AI Gateway declaration conditional for Neon Free-tier deployments. The already-provisioned gateway is retained, but Dice Arena does not use it.
+- A private assets bucket and a separate `hello` Neon Function were provisioned. The Function and application routes were smoke-tested; the bucket and Function are not runtime dependencies of Dice Arena. The app does not use Neon Object Storage or Realtime.
+
 ## TODO / Roadmap
 - [ ] Point a custom domain (optional) — for client-facing work; a single wildcard domain can cover all sites.

@@ -2,9 +2,9 @@
 const { t } = useI18n()
 
 const stats = [
-  { key: 'projects', value: '16+', icon: 'inventory_2' },
+  { key: 'projects', value: '20+', icon: 'inventory_2' },
   { key: 'templates', value: '12', icon: 'palette' },
-  { key: 'live', value: '4', icon: 'rocket_launch' },
+  { key: 'live', value: '8', icon: 'rocket_launch' },
   { key: 'languages', value: '3', icon: 'language' },
 ]
 </script>

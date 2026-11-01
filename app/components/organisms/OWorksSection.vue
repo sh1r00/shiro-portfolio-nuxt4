@@ -37,6 +37,7 @@ const { live, templates } = useWorks()
             :is-live="true"
           />
         </div>
+        <MProjectSpotlight />
       </div>
 
       <!-- Templates -->

@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "Habilidades y Experiencia",
-    "subtitle": "El stack completo detrás de 19 proyectos",
+    "subtitle": "El stack completo detrás de 20 proyectos",
     "nuxt": {
       "name": "Nuxt 4 y Vue 3",
       "desc": "Apps full-stack con SSR, SSG e ISR — diseño atómico, estado Pinia e i18n de 3 idiomas."
@@ -51,6 +51,12 @@
     "live_projects_desc": "Aplicaciones en producción",
     "live_badge": "EN VIVO",
     "view_site": "Ver Sitio",
+    "spotlight_label": "Caso de estudio de despliegue",
+    "spotlight_title": "Dice Arena",
+    "spotlight_summary": "Aplicación web Nuxt 4 desplegada en Cloudflare Workers y respaldada por Neon Postgres.",
+    "spotlight_architecture": "Arquitectura: configuración Wrangler generada por Nitro → Worker → Hyperdrive → Neon Postgres; Better Auth + Drizzle.",
+    "spotlight_lesson": "Las migraciones usan la URL directa y sin pooling de la base de datos; en tiempo de ejecución, el Worker usa Hyperdrive. Se corrigió la discrepancia del esquema rate_limit.id de Better Auth antes del despliegue.",
+    "spotlight_checks": "Se probaron las rutas de la aplicación y, por separado, una función Neon hello. El bucket privado de activos está provisionado aparte y no es una dependencia de ejecución de la aplicación.",
     "screenshots": "Capturas",
     "screenshots_desc": "Vistas previas de proyectos"
   },
@@ -88,12 +94,12 @@
   },
   "about": {
     "title": "Sobre shiro",
-    "subtitle": "Un desarrollador. 19 proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
+    "subtitle": "Un desarrollador. 20 proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
     "name": "sh1r00",
     "role": "Desarrollador Full-Stack e Ingeniero de Diseño",
     "github": "GitHub",
     "email": "Correo",
-    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 19 proyectos entregados — 7 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues sin interrupciones en Cloudflare Pages, Netlify, Render y Vercel.",
+    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 20 proyectos entregados — 8 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues en Cloudflare Workers, Cloudflare Pages, Netlify, Render y Vercel.",
     "stats_projects": "Proyectos Desplegados",
     "stats_categories": "Categorías de Proyecto",
     "stats_languages": "Idiomas",
