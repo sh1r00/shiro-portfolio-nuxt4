@@ -2,7 +2,12 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-01',
-  modules: ['@pinia/nuxt', '@nuxtjs/i18n', '@vite-pwa/nuxt', 'nuxt-security'],
+  modules: [
+  '@pinia/nuxt',
+  '@nuxtjs/i18n',
+  '@vite-pwa/nuxt',
+  'nuxt-security',
+  ],
   css: ['~/assets/css/main.css'],
   // Auto-import app/components/{atoms,molecules,organisms} by filename only
   // (ABadge, OHeroSection, …) — without this the dir becomes a prefix
@@ -31,8 +36,20 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: { failOnError: false },
+
     // @libsql/client ships a native/WASM libsql binding for `file:` mode — don't bundle it.
     externals: { external: ['@libsql/client', 'libsql'] },
+
+    preset: 'cloudflare_module',
+
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+      wrangler: {
+        name: 'shiro-portfolio-nuxt4',
+        compatibility_date: '2025-07-01',
+      },
+    },
   },
   runtimeConfig: {
     adminSecret: '', // NUXT_ADMIN_SECRET (32+ chars) — session signing

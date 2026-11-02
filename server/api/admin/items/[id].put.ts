@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
   const sortOrder = body?.sort_order == null ? 0 : requireInt(body.sort_order, 'sort_order')
 
   await run(
+    event,
     'UPDATE portfolio_items SET title = ?, url = ?, thumbnail = ?, kind = ?, sort_order = ? WHERE id = ?',
     [title, url, thumbnail, kind, sortOrder, id],
   )

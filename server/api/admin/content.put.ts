@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
   for (const key of ALLOWED_KEYS) {
     if (typeof body[key] === 'string') {
       await run(
+        event,
         'INSERT INTO site_content (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value = excluded.value',
         [key, body[key].slice(0, 5000)],
       )

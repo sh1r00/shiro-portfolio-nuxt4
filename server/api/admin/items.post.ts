@@ -12,6 +12,7 @@ export default defineEventHandler(async (event) => {
   const sortOrder = body?.sort_order == null ? 0 : requireInt(body.sort_order, 'sort_order')
 
   const id = await run(
+    event,
     'INSERT INTO portfolio_items (title, url, thumbnail, kind, sort_order) VALUES (?, ?, ?, ?, ?)',
     [title, url, thumbnail, kind, sortOrder],
   )

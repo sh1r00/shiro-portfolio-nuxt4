@@ -1,34 +1,9 @@
 import bcrypt from 'bcryptjs'
-import { readFileSync, existsSync } from 'node:fs'
-import { resolve } from 'node:path'
-import { exec, get, run } from '../utils/db'
-import { getAdminSecret } from '../utils/session'
+import type { H3Event } from 'h3'
+import { exec, get, run } from './db'
+import { getAdminSecret } from './session'
+import { getRequestEnvironmentValue, isCloudflareRuntime } from './runtime-env'
 
-// Env key names assembled from fragments (keeps literal secret-looking strings out of source)
-const kUser = ['NUXT_', 'ADMIN_', 'USERNAME'].join('')
-const kPass = ['NUXT_', 'ADMIN_', 'PASS', 'WORD'].join('')
-
-// Load .env into process.env at runtime (the built Nitro server does not auto-load it).
-// Manual loader: does not override existing env vars (host env takes precedence).
-// (Guarded: Cloudflare Workers have no fs — env vars come from Pages secrets in prod.)
-function loadEnvFile(): void {
-  try {
-    const envPath = resolve(process.cwd(), '.env')
-    if (!existsSync(envPath)) return
-    for (const line of readFileSync(envPath, 'utf-8').split(/\r?\n/)) {
-      const eq = line.indexOf('=')
-      if (eq <= 0) continue
-      const key = line.slice(0, eq).trim()
-      const value = line.slice(eq + 1).trim()
-      if (key && value && process.env[key] === undefined) process.env[key] = value
-    }
-  } catch {
-    /* no-op in serverless */
-  }
-}
-loadEnvFile()
-
-// Seed data — mirrors the previous hardcoded arrays in OWorksSection.vue.
 const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'template' }[] = [
   { title: 'Shop Tulu', url: 'https://shop-tulu.netlify.app', thumbnail: '/img/shop-tulu.png', kind: 'live' },
   { title: 'kPhone Marketing', url: 'https://marketing-campaign-gen.netlify.app', thumbnail: '', kind: 'live' },
@@ -51,7 +26,6 @@ const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'tem
   { title: 'Urban Ride Bikes', url: 'https://bike-store-sh1r00-817.netlify.app', thumbnail: '', kind: 'template' },
 ]
 
-// Editable site copy — About Us wording + Contact Us info (key-value store).
 const CONTENT_SEED: { key: string; value: string }[] = [
   { key: 'about_bio', value: 'I build fast, accessible web experiences with Nuxt 4, Vue 3, and a sharp eye for design — from concept to deployment.' },
   { key: 'contact_email', value: 'joedoe98210@gmail.com' },
@@ -59,14 +33,18 @@ const CONTENT_SEED: { key: string; value: string }[] = [
   { key: 'contact_location', value: '' },
 ]
 
-export default defineNitroPlugin(async () => {
-  // Fail fast in production if the session secret is still the insecure default.
-  const secret = getAdminSecret()
-  if (process.env.NODE_ENV === 'production' && (secret.length < 32 || secret.startsWith('dev-only-'))) {
+let initialization: Promise<void> | undefined
+
+async function initializeDatabase(event: H3Event): Promise<void> {
+  const secret = getAdminSecret(event)
+  const production = isCloudflareRuntime(event)
+    || getRequestEnvironmentValue(event, 'NODE_ENV') === 'production'
+
+  if (production && (secret.length < 32 || secret.startsWith('dev-only-'))) {
     throw new Error('NUXT_ADMIN_SECRET must be set to a random value (32+ chars) in production.')
   }
 
-  await exec(`CREATE TABLE IF NOT EXISTS portfolio_items (
+  await exec(event, `CREATE TABLE IF NOT EXISTS portfolio_items (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     url TEXT NOT NULL,
@@ -75,7 +53,7 @@ export default defineNitroPlugin(async () => {
     sort_order INTEGER NOT NULL DEFAULT 0
   )`)
 
-  await exec(`CREATE TABLE IF NOT EXISTS admin_users (
+  await exec(event, `CREATE TABLE IF NOT EXISTS admin_users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
@@ -83,7 +61,7 @@ export default defineNitroPlugin(async () => {
     locked_until INTEGER
   )`)
 
-  await exec(`CREATE TABLE IF NOT EXISTS contact_inquiries (
+  await exec(event, `CREATE TABLE IF NOT EXISTS contact_inquiries (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     email TEXT NOT NULL,
@@ -91,39 +69,47 @@ export default defineNitroPlugin(async () => {
     created_at INTEGER NOT NULL
   )`)
 
-  await exec(`CREATE TABLE IF NOT EXISTS site_content (
+  await exec(event, `CREATE TABLE IF NOT EXISTS site_content (
     key TEXT PRIMARY KEY,
     value TEXT NOT NULL DEFAULT ''
   )`)
 
-  // Seed works if empty (idempotent — never overwrites admin edits).
-  const count = (await get<{ n: number }>('SELECT COUNT(*) AS n FROM portfolio_items'))?.n ?? 0
+  const count = (await get<{ n: number }>(event, 'SELECT COUNT(*) AS n FROM portfolio_items'))?.n ?? 0
   if (count === 0) {
-    for (let i = 0; i < SEED.length; i++) {
-      const s = SEED[i]
+    for (const [index, item] of SEED.entries()) {
       await run(
+        event,
         'INSERT INTO portfolio_items (title, url, thumbnail, kind, sort_order) VALUES (?, ?, ?, ?, ?)',
-        [s.title, s.url, s.thumbnail, s.kind, i],
+        [item.title, item.url, item.thumbnail, item.kind, index],
       )
     }
   }
 
-  // Seed admin user from env (bcrypt), only if empty — no overwrite.
-  const adminCount = (await get<{ n: number }>('SELECT COUNT(*) AS n FROM admin_users'))?.n ?? 0
+  const adminCount = (await get<{ n: number }>(event, 'SELECT COUNT(*) AS n FROM admin_users'))?.n ?? 0
   if (adminCount === 0) {
-    const username = process.env[kUser]
-    const password = process.env[kPass]
+    const username = getRequestEnvironmentValue(event, 'NUXT_ADMIN_USERNAME')
+    const password = getRequestEnvironmentValue(event, 'NUXT_ADMIN_PASSWORD')
     if (username && password) {
       const hash = bcrypt.hashSync(password, 12)
-      await run('INSERT INTO admin_users (username, password_hash) VALUES (?, ?)', [username, hash])
+      await run(event, 'INSERT INTO admin_users (username, password_hash) VALUES (?, ?)', [username, hash])
     }
   }
 
-  // Seed editable site content if empty (idempotent).
-  const contentCount = (await get<{ n: number }>('SELECT COUNT(*) AS n FROM site_content'))?.n ?? 0
+  const contentCount = (await get<{ n: number }>(event, 'SELECT COUNT(*) AS n FROM site_content'))?.n ?? 0
   if (contentCount === 0) {
-    for (const c of CONTENT_SEED) {
-      await run('INSERT INTO site_content (key, value) VALUES (?, ?)', [c.key, c.value])
+    for (const content of CONTENT_SEED) {
+      await run(event, 'INSERT INTO site_content (key, value) VALUES (?, ?)', [content.key, content.value])
     }
   }
-})
+}
+
+export function ensureDatabaseInitialized(event: H3Event): Promise<void> {
+  if (!initialization) {
+    initialization = initializeDatabase(event).catch((error: unknown) => {
+      initialization = undefined
+      throw error
+    })
+  }
+
+  return initialization
+}

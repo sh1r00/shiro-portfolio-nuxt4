@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
   }
 
   await run(
+    event,
     'INSERT INTO contact_inquiries (name, email, message, created_at) VALUES (?, ?, ?, ?)',
     [name, email, message, Date.now()],
   )

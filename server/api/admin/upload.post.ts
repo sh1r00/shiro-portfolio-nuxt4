@@ -3,6 +3,8 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { randomBytes } from 'node:crypto'
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import type { H3Event } from 'h3'
+import { getRequestEnvironmentValue, isCloudflareRuntime } from '../../utils/runtime-env'
 
 const MAX_SIZE = 2 * 1024 * 1024 // 2MB
 
@@ -23,19 +25,34 @@ const EXT: Record<string, string> = { png: '.png', jpg: '.jpg', webp: '.webp', g
 interface R2Config { bucket: string; publicUrl: string; client: S3Client }
 let r2: R2Config | null = null
 
-function r2Configured(): boolean {
-  return !!(process.env.R2_ACCOUNT_ID && process.env.R2_ACCESS_KEY_ID && process.env.R2_SECRET_ACCESS_KEY && process.env.R2_BUCKET && process.env.R2_PUBLIC_URL)
+function r2Configured(event: H3Event): boolean {
+  return !!(
+    getRequestEnvironmentValue(event, 'R2_ACCOUNT_ID')
+    && getRequestEnvironmentValue(event, 'R2_ACCESS_KEY_ID')
+    && getRequestEnvironmentValue(event, 'R2_SECRET_ACCESS_KEY')
+    && getRequestEnvironmentValue(event, 'R2_BUCKET')
+    && getRequestEnvironmentValue(event, 'R2_PUBLIC_URL')
+  )
 }
 
-function r2Client(): R2Config {
+function r2Client(event: H3Event): R2Config {
   if (!r2) {
+    const accountId = getRequestEnvironmentValue(event, 'R2_ACCOUNT_ID')
+    const accessKeyId = getRequestEnvironmentValue(event, 'R2_ACCESS_KEY_ID')
+    const secretAccessKey = getRequestEnvironmentValue(event, 'R2_SECRET_ACCESS_KEY')
+    const bucket = getRequestEnvironmentValue(event, 'R2_BUCKET')
+    const publicUrl = getRequestEnvironmentValue(event, 'R2_PUBLIC_URL')
+    if (!accountId || !accessKeyId || !secretAccessKey || !bucket || !publicUrl) {
+      throw createError({ statusCode: 503, statusMessage: 'Cloudflare R2 upload storage is not configured.' })
+    }
+
     r2 = {
-      bucket: process.env.R2_BUCKET!,
-      publicUrl: (process.env.R2_PUBLIC_URL || '').replace(/\/+$/, ''),
+      bucket,
+      publicUrl: publicUrl.replace(/\/+$/, ''),
       client: new S3Client({
         region: 'auto', // NOT a real region — required for R2
-        endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
-        credentials: { accessKeyId: process.env.R2_ACCESS_KEY_ID!, secretAccessKey: process.env.R2_SECRET_ACCESS_KEY! },
+        endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
+        credentials: { accessKeyId, secretAccessKey },
         forcePathStyle: true, // R2 requires path-style
       }),
     }
@@ -58,11 +75,15 @@ export default defineEventHandler(async (event) => {
 
   const name = `${Date.now().toString(36)}-${randomBytes(4).toString('hex')}${EXT[kind]}`
 
-  if (r2Configured()) {
-    const cfg = r2Client()
+  if (r2Configured(event)) {
+    const cfg = r2Client(event)
     const key = `thumbnails/${name}`
     await cfg.client.send(new PutObjectCommand({ Bucket: cfg.bucket, Key: key, Body: file.data, ContentType: `image/${kind}` }))
     return { path: `${cfg.publicUrl}/${key}` }
+  }
+
+  if (isCloudflareRuntime(event)) {
+    throw createError({ statusCode: 503, statusMessage: 'Cloudflare R2 upload storage is not configured.' })
   }
 
   const dir = resolve(process.cwd(), 'public', 'uploads')

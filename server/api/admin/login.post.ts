@@ -18,6 +18,7 @@ export default defineEventHandler(async (event) => {
   const now = Date.now()
 
   const user = await get<AdminUser>(
+    event,
     'SELECT id, username, password_hash, failed_attempts, locked_until FROM admin_users WHERE username = ?',
     [username],
   )
@@ -35,16 +36,16 @@ export default defineEventHandler(async (event) => {
     if (user) {
       const attempts = user.failed_attempts + 1
       if (attempts >= MAX_ATTEMPTS) {
-        await run('UPDATE admin_users SET failed_attempts = 0, locked_until = ? WHERE id = ?', [now + LOCK_MS, user.id])
+        await run(event, 'UPDATE admin_users SET failed_attempts = 0, locked_until = ? WHERE id = ?', [now + LOCK_MS, user.id])
       } else {
-        await run('UPDATE admin_users SET failed_attempts = ? WHERE id = ?', [attempts, user.id])
+        await run(event, 'UPDATE admin_users SET failed_attempts = ? WHERE id = ?', [attempts, user.id])
       }
     }
     throw createError({ statusCode: 401, statusMessage: 'Invalid credentials' })
   }
 
   // Success: reset the counter and start a session.
-  await run('UPDATE admin_users SET failed_attempts = 0, locked_until = NULL WHERE id = ?', [user.id])
+  await run(event, 'UPDATE admin_users SET failed_attempts = 0, locked_until = NULL WHERE id = ?', [user.id])
   const session = await getAdminSession(event)
   await session.update({ userId: user.id, username: user.username })
   return { ok: true }

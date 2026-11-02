@@ -20,11 +20,15 @@ Nuxt 4 (SSR) · Vue 3 · Tailwind v4 · @nuxtjs/i18n · @vite-pwa/nuxt · nuxt-s
 - **Blank screen, no console errors** — missing `components: [{ path: '~/components', pathPrefix: false }]` made every organism auto-import as `OrganismsOHeroSection` and render empty.
 - **`_ctx.localePath is not a function`** — `localePath` is not auto-imported; use `const localePath = useLocalePath()`.
 - **`props is not defined`** — `AButton` used `props.href` without `const props = defineProps()`.
-- **502 `mkdir /var/task/server/data`** — the `file:` libSQL fallback fails on Netlify's read-only FS; set `TURSO_DATABASE_URL`.
+- **Production database** — Workers have no durable local filesystem. Configure `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN`; the local `file:` fallback is only for Node development.
 - **nuxt-security@2.6.0** needs Node ≥24 → `NODE_VERSION = "24"`.
 
 ## Deployment
-Netlify SSR (`nuxi build --preset netlify`, publish `dist`), Node 24, `--legacy-peer-deps`.
+Production runs on Cloudflare Workers using Nitro's `cloudflare_module` preset and its generated Wrangler config. Run `npm run deploy` to build and deploy. Configure `TURSO_DATABASE_URL`, `TURSO_AUTH_TOKEN`, `NUXT_ADMIN_SECRET`, `NUXT_ADMIN_USERNAME`, and `NUXT_ADMIN_PASSWORD` as Worker secrets before serving traffic.
+
+Admin image uploads require all `R2_*` credentials. Without them, the upload API returns HTTP 503; it does not attempt to write to the Worker filesystem. A custom domain can be attached separately in Cloudflare.
+
+`netlify.toml` remains as the legacy Netlify configuration; it is not used by the Cloudflare deploy script.
 
 ## Featured Project: Dice Arena
 Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's generated Wrangler configuration. The Worker connects to Neon Postgres through a Hyperdrive binding; Better Auth and Drizzle provide authentication and database access.

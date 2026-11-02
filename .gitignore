@@ -18,3 +18,8 @@ public/uploads/
 
 # Local Netlify folder
 .netlify
+
+# Cloudflare Workers local state
+.wrangler
+.dev.vars*
+!.dev.vars.example

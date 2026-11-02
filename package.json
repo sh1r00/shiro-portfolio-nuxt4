@@ -18,8 +18,11 @@
     "generate": "nuxi generate",
     "generate:theme": "node scripts/generate-theme.mjs",
     "preview": "nuxi preview",
+    "preview:worker": "npm run build && wrangler --config .output/server/wrangler.json dev",
     "test:unit": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "typecheck": "nuxi prepare && tsc --noEmit --project .nuxt/tsconfig.server.json",
+    "deploy": "npm run build && wrangler --config .output/server/wrangler.json deploy"
   },
   "browserslist": [
     "defaults",
@@ -47,6 +50,7 @@
     "@vue/test-utils": "^2.4.11",
     "happy-dom": "^20.10.6",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.10",
+    "wrangler": "^4.156.1"
   }
 }
