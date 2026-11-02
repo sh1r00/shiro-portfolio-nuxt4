@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "Habilidades y Experiencia",
-    "subtitle": "El stack completo detrás de 20 proyectos",
+    "subtitle": "Diseño, ingeniería y entrega en todo el stack",
     "nuxt": {
       "name": "Nuxt 4 y Vue 3",
       "desc": "Apps full-stack con SSR, SSG e ISR — diseño atómico, estado Pinia e i18n de 3 idiomas."
@@ -47,6 +47,8 @@
     "subtitle": "Proyectos y plantillas que he construido",
     "templates": "Plantillas",
     "templates_desc": "Plantillas de sitios web listas para usar",
+    "browse_templates": "Ver plantillas",
+    "featured_project": "Proyecto destacado",
     "live_projects": "Proyectos Activos",
     "live_projects_desc": "Aplicaciones en producción",
     "live_badge": "EN VIVO",
@@ -58,7 +60,15 @@
     "spotlight_lesson": "Las migraciones usan la URL directa y sin pooling de la base de datos; en tiempo de ejecución, el Worker usa Hyperdrive. Se corrigió la discrepancia del esquema rate_limit.id de Better Auth antes del despliegue.",
     "spotlight_checks": "Se probaron las rutas de la aplicación y, por separado, una función Neon hello. El bucket privado de activos está provisionado aparte y no es una dependencia de ejecución de la aplicación.",
     "screenshots": "Capturas",
-    "screenshots_desc": "Vistas previas de proyectos"
+    "screenshots_desc": "Vistas previas de proyectos",
+    "carousel_label": "Capturas de proyectos",
+    "previous_screenshot": "Captura anterior",
+    "next_screenshot": "Captura siguiente",
+    "play_slideshow": "Iniciar presentación",
+    "pause_slideshow": "Pausar presentación",
+    "go_to_screenshot": "Ir a la captura {number}",
+    "screenshot_status": "Diapositiva {current} de {total}",
+    "reduced_motion_notice": "Los cambios automáticos de diapositiva están desactivados porque está activada la opción de movimiento reducido."
   },
   "stats": {
     "title": "En Números",
@@ -72,7 +82,12 @@
     "skills": "Habilidades",
     "works": "Trabajo",
     "screenshots": "Capturas",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "main_label": "Navegación principal",
+    "open_menu": "Abrir menú de navegación",
+    "close_menu": "Cerrar menú de navegación",
+    "language_selector": "Idioma",
+    "language_option": "Cambiar a {language}"
   },
   "footer": {
     "made_with": "Hecho con ❤️ por shiro",
@@ -86,6 +101,7 @@
     "email": "Tu Correo",
     "message": "Tu Mensaje",
     "send": "Enviar Mensaje",
+    "sending": "Enviando mensaje…",
     "success": "¡Mensaje enviado! Te responderé pronto.",
     "error": "Algo salió mal. Inténtalo de nuevo.",
     "phone": "Teléfono",
@@ -94,12 +110,12 @@
   },
   "about": {
     "title": "Sobre shiro",
-    "subtitle": "Un desarrollador. 20 proyectos. Pasión infinita por el código limpio y el diseño hermoso.",
+    "subtitle": "Desarrollador independiente que crea experiencias digitales integrales y cuidadas.",
     "name": "sh1r00",
     "role": "Desarrollador Full-Stack e Ingeniero de Diseño",
     "github": "GitHub",
     "email": "Correo",
-    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente. 20 proyectos entregados — 8 aplicaciones en vivo y 12 plantillas Nuxt 4 reutilizables — que abarcan fintech, e-commerce, marketing con IA, BPO y marketplaces de servicios. Full-stack con Nuxt 4/Vue 3 y backends Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, e-commerce Shopify, pipelines de IA OpenAI/Google Ads y despliegues en Cloudflare Workers, Cloudflare Pages, Netlify, Render y Vercel.",
+    "bio": "shiro es un desarrollador full-stack e ingeniero de diseño independiente que crea aplicaciones web para fintech, comercio electrónico, marketing con IA, BPO y mercados de servicios. Su trabajo abarca Nuxt 4/Vue 3, Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite y Turso, con pagos Stripe/Chapa/PayPal, tiendas Shopify, flujos de OpenAI/Google Ads y despliegues en Cloudflare Workers, Cloudflare Pages, Netlify, Render y Vercel.",
     "stats_projects": "Proyectos Desplegados",
     "stats_categories": "Categorías de Proyecto",
     "stats_languages": "Idiomas",

@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "ችሎታዎች እና እውቀት",
-    "subtitle": "ከ20 የተሰማሩ ፕሮጀክቶች በስተጀርባ ያለው ሙሉ ቁልል",
+    "subtitle": "በሙሉ የቴክኖሎጂ ክልል የዲዛይን፣ የምህንድስና እና የማቅረብ ክህሎቶች",
     "nuxt": {
       "name": "Nuxt 4 እና Vue 3",
       "desc": "SSR፣ SSG እና ISR ያላቸው ሙሉ-ቁልል መተግበሪያዎች — atomic ዲዛይን፣ Pinia እና ባለ3-ቋንቋ i18n።"
@@ -47,6 +47,8 @@
     "subtitle": "የገነባኋቸው ፕሮጀክቶች እና አብነቶች",
     "templates": "አብነቶች",
     "templates_desc": "ለመጠቀም ዝግጁ የድረ-ገጽ አብነቶች",
+    "browse_templates": "አብነቶችን ይመልከቱ",
+    "featured_project": "ተለይቶ የቀረበ ፕሮጀክት",
     "live_projects": "ቀጥታ ፕሮጀክቶች",
     "live_projects_desc": "የምርት መተግበሪያዎች",
     "live_badge": "ቀጥታ",
@@ -58,7 +60,15 @@
     "spotlight_lesson": "ማይግሬሽኖች ቀጥተኛ፣ pooling የሌለውን የዳታቤዝ URL ይጠቀማሉ፤ Worker በruntime Hyperdrive ይጠቀማል። ከdeployment በፊት የBetter Auth rate_limit.id ስኪማ አለመዛመድ ተስተካክሏል።",
     "spotlight_checks": "የመተግበሪያ ራውቶች እና የተለየ Neon hello Function ተፈትሸዋል። የግል assets bucket ተለይቶ ተዘጋጅቷል እና የመተግበሪያው የruntime ጥገኝነት አይደለም።",
     "screenshots": "ቅጽበተ-ፎቶዎች",
-    "screenshots_desc": "የፕሮጀክት ቅድመ እይታዎች"
+    "screenshots_desc": "የፕሮጀክት ቅድመ እይታዎች",
+    "carousel_label": "የፕሮጀክት ቅጽበተ-ፎቶዎች",
+    "previous_screenshot": "ያለፈው ቅጽበተ-ፎቶ",
+    "next_screenshot": "ቀጣዩ ቅጽበተ-ፎቶ",
+    "play_slideshow": "የቅጽበተ-ፎቶ ማሳያውን አስጀምር",
+    "pause_slideshow": "የቅጽበተ-ፎቶ ማሳያውን አቁም",
+    "go_to_screenshot": "ወደ {number}ኛው ቅጽበተ-ፎቶ ሂድ",
+    "screenshot_status": "ስላይድ {current} ከ {total}",
+    "reduced_motion_notice": "የተቀነሰ እንቅስቃሴ ስለተመረጠ ቅጽበተ-ፎቶዎች በራስ-ሰር አይቀየሩም።"
   },
   "stats": {
     "title": "በቁጥሮች",
@@ -72,7 +82,12 @@
     "skills": "ችሎታዎች",
     "works": "ስራዎች",
     "screenshots": "ቅጽበተ-ፎቶዎች",
-    "contact": "እውቂያ"
+    "contact": "እውቂያ",
+    "main_label": "ዋና አሰሳ",
+    "open_menu": "የአሰሳ ምናሌን ክፈት",
+    "close_menu": "የአሰሳ ምናሌን ዝጋ",
+    "language_selector": "ቋንቋ",
+    "language_option": "ወደ {language} ቀይር"
   },
   "footer": {
     "made_with": "በ❤️ በshiro የተሰራ",
@@ -86,6 +101,7 @@
     "email": "ኢሜይልዎ",
     "message": "መልዕክትዎ",
     "send": "መልዕክት ላክ",
+    "sending": "መልዕክት በመላክ ላይ…",
     "success": "መልዕክት ተልኳል! በቅርቡ እመልሳለሁ።",
     "error": "የሆነ ችግር ተፈጥሯል። እባክዎ እንደገና ይሞክሩ።",
     "phone": "ስልክ",
@@ -94,12 +110,12 @@
   },
   "about": {
     "title": "ስለ shiro",
-    "subtitle": "አንድ ገንቢ። 20 ፕሮጀክቶች። ለንጹህ ኮድ እና ውብ ዲዛይን ማለቂያ የሌለው ፍቅር።",
+    "subtitle": "ገለልተኛ ገንቢ፤ የተጠነቀቁ ሙሉ-ቁልል ዲጂታል ተሞክሮዎችን ይገነባል።",
     "name": "sh1r00",
     "role": "ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ",
     "github": "GitHub",
     "email": "ኢሜይል",
-    "bio": "shiro ብቸኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። 20 ፕሮጀክቶች ተሰርተዋል — 8 ቀጥታ መተግበሪያዎች እና 12 ዳግም-ጥቅም የሚያገኙ Nuxt 4 አብነቶች — fintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎችን ያካትታል። Nuxt 4/Vue 3 እና Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Turso backends፣ ከStripe/Chapa/PayPal ክፍያዎች፣ Shopify e-commerce፣ OpenAI/Google Ads AI ፓይፕላይኖች ጋር፣ እና በCloudflare Workers፣ Cloudflare Pages፣ Netlify፣ Render እና Vercel ላይ ማሰማራት።",
+    "bio": "shiro በfintech፣ e-commerce፣ AI ማርኬቲንግ፣ BPO እና የአገልግሎት ገበያዎች ውስጥ የድር መተግበሪያዎችን የሚገነባ ገለልተኛ ሙሉ-ቁልል ገንቢ እና የዲዛይን መሐንዲስ ነው። ስራው Nuxt 4/Vue 3፣ Hapi.js፣ PostgreSQL/PostGIS፣ MongoDB፣ Supabase፣ SQLite እና Tursoን፣ የStripe/Chapa/PayPal ክፍያዎችን፣ Shopify መደብሮችን፣ OpenAI/Google Ads የስራ ሂደቶችን እና በCloudflare Workers፣ Cloudflare Pages፣ Netlify፣ Render እና Vercel ላይ ማሰማራትን ያካትታል።",
     "stats_projects": "የተሰማሩ ፕሮጀክቶች",
     "stats_categories": "የፕሮጀክት ምድቦች",
     "stats_languages": "ቋንቋዎች",

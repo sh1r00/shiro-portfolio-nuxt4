@@ -8,7 +8,7 @@
   },
   "skills": {
     "title": "Skills & Expertise",
-    "subtitle": "The full stack behind 20 shipped projects",
+    "subtitle": "Design, engineering, and delivery across the full stack",
     "nuxt": {
       "name": "Nuxt 4 & Vue 3",
       "desc": "Full-stack apps with SSR, SSG, and ISR — atomic design, Pinia state, and 3-locale i18n."
@@ -47,6 +47,8 @@
     "subtitle": "Projects and templates I've built",
     "templates": "Templates",
     "templates_desc": "Ready-to-use website templates",
+    "browse_templates": "Browse templates",
+    "featured_project": "Featured project",
     "live_projects": "Live Projects",
     "live_projects_desc": "Production applications",
     "live_badge": "LIVE",
@@ -58,7 +60,15 @@
     "spotlight_lesson": "Migrations use the direct, unpooled database URL; Worker runtime traffic uses Hyperdrive. The Better Auth rate_limit.id schema mismatch was fixed before deployment.",
     "spotlight_checks": "App routes and a separate Neon hello Function were smoke-tested. The private assets bucket is provisioned separately and is not an app runtime dependency.",
     "screenshots": "Screenshots",
-    "screenshots_desc": "Project previews"
+    "screenshots_desc": "Project previews",
+    "carousel_label": "Project screenshots",
+    "previous_screenshot": "Previous screenshot",
+    "next_screenshot": "Next screenshot",
+    "play_slideshow": "Play slideshow",
+    "pause_slideshow": "Pause slideshow",
+    "go_to_screenshot": "Go to screenshot {number}",
+    "screenshot_status": "Slide {current} of {total}",
+    "reduced_motion_notice": "Automatic slide changes are unavailable while reduced motion is enabled."
   },
   "stats": {
     "title": "By the Numbers",
@@ -72,7 +82,12 @@
     "skills": "Skills",
     "works": "Works",
     "screenshots": "Screenshots",
-    "contact": "Contact"
+    "contact": "Contact",
+    "main_label": "Main navigation",
+    "open_menu": "Open navigation menu",
+    "close_menu": "Close navigation menu",
+    "language_selector": "Language",
+    "language_option": "Switch to {language}"
   },
   "footer": {
     "made_with": "Made with ❤️ by shiro",
@@ -86,6 +101,7 @@
     "email": "Your Email",
     "message": "Your Message",
     "send": "Send Message",
+    "sending": "Sending message…",
     "success": "Message sent! I'll get back to you soon.",
     "error": "Something went wrong. Please try again.",
     "phone": "Phone",
@@ -94,12 +110,12 @@
   },
   "about": {
     "title": "About shiro",
-    "subtitle": "One developer. 20 projects. Endless passion for clean code and beautiful design.",
+    "subtitle": "An independent developer building thoughtful, full-stack digital experiences.",
     "name": "sh1r00",
     "role": "Full-Stack Developer & Design Engineer",
     "github": "GitHub",
     "email": "Email",
-    "bio": "shiro is a solo full-stack developer and design engineer. 20 projects shipped — 8 live applications and 12 reusable Nuxt 4 templates — spanning fintech, e-commerce, AI marketing, BPO, and service marketplaces. Full-stack across Nuxt 4/Vue 3 and Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso backends, with Stripe/Chapa/PayPal payments, Shopify e-commerce, OpenAI/Google Ads AI pipelines, and deployments on Cloudflare Workers, Cloudflare Pages, Netlify, Render, and Vercel.",
+    "bio": "shiro is an independent full-stack developer and design engineer building web applications across fintech, e-commerce, AI marketing, BPO, and service marketplaces. Work spans Nuxt 4/Vue 3, Hapi.js, PostgreSQL/PostGIS, MongoDB, Supabase, SQLite, and Turso, with Stripe/Chapa/PayPal payments, Shopify storefronts, OpenAI/Google Ads workflows, and deployments on Cloudflare Workers, Cloudflare Pages, Netlify, Render, and Vercel.",
     "stats_projects": "Projects Deployed",
     "stats_categories": "Project Categories",
     "stats_languages": "Languages",

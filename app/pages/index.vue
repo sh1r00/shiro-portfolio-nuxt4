@@ -16,9 +16,9 @@ useHead(() => ({
 <template>
   <OHeroSection />
   <OStatsSection />
-  <OSkillsSection />
   <OWorksSection />
   <OScreenshotsCarousel />
+  <OSkillsSection />
   <OAboutSection />
   <OContactSection />
 </template>

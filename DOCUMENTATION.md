@@ -12,7 +12,7 @@ Nuxt 4 (SSR) · Vue 3 · Tailwind v4 · @nuxtjs/i18n · @vite-pwa/nuxt · nuxt-s
 - Admin panel: bcrypt + h3 signed session + `requireAdmin` middleware.
 - R2 thumbnail uploads (magic-number validation, SVG disallowed).
 - Contact form + Contact page with mailto drawn from the DB.
-- `site_content` key-value table for About bio + Contact info, editable in admin.
+- `site_content` key-value table for About bio + Contact info, editable in admin. The editable bio is shown in English; Spanish and Amharic use their translated catalog copy.
 - Admin credential rotation (username `sh1r00`).
 
 ## Pitfalls & Fixes
@@ -28,9 +28,14 @@ Production runs on Cloudflare Workers using Nitro's `cloudflare_module` preset a
 
 Admin image uploads require all `R2_*` credentials. Without them, the upload API returns HTTP 503; it does not attempt to write to the Worker filesystem. A custom domain can be attached separately in Cloudflare.
 
+The dependency audit pins patched `esbuild`, `glob`, and `minimatch` versions where upstream ranges lag, and keeps `happy-dom` at 21.0.4 or newer. One low-severity advisory remains in `deepmerge@4.3.1`, used by the Nitro/Workbox build tooling; no patched upstream release is available. The vulnerable package is absent from the generated Worker output. Avoid `npm audit fix --force`, which recommends out-of-range Nuxt/PWA downgrades; recheck for an upstream fix instead.
+
 `netlify.toml` remains as the legacy Netlify configuration; it is not used by the Cloudflare deploy script.
 
-## Featured Project: Dice Arena
+## Featured Work: Marketing-gen
+The live-work grid explicitly features the `marketing-gen.pages.dev` project instead of relying on database sort order. If that entry is unavailable, the first live project is used as a fallback.
+
+## Deployment Case Study: Dice Arena
 Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's generated Wrangler configuration. The Worker connects to Neon Postgres through a Hyperdrive binding; Better Auth and Drizzle provide authentication and database access.
 
 ### Architecture and operational lessons
@@ -40,5 +45,5 @@ Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's gen
 - A private assets bucket and a separate `hello` Neon Function were provisioned. The Function and application routes were smoke-tested; the bucket and Function are not runtime dependencies of Dice Arena. The app does not use Neon Object Storage or Realtime.
 
 ## TODO / Roadmap
-- [ ] Configure the R2 bucket and `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_URL` values to re-enable admin image uploads.
+- [ ] Add Cloudflare R2 for uploaded media (keep Turso for structured portfolio data): create a bucket and configure `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_URL` to re-enable admin image uploads.
 - [ ] Point a custom domain (optional) — for client-facing work; a single wildcard domain can cover all sites.

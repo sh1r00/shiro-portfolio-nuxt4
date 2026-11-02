@@ -1,43 +1,385 @@
 <script setup lang="ts">
 const { t } = useI18n()
+
+const featuredVisuals = [
+  { src: '/img/shop-tulu.png', alt: 'Shop Tulu', class: 'hero-visual-primary' },
+  { src: '/img/credit-wizard.png', alt: 'Credit Wiz', class: 'hero-visual-secondary' },
+  { src: '/img/realty-creditors.png', alt: 'Realty Creditors', class: 'hero-visual-tertiary' },
+]
 </script>
 
 <template>
-  <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 -z-10">
-      <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-[var(--md-sys-color-primary-container)]/30 rounded-full blur-3xl" />
-      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--md-sys-color-tertiary-container)]/20 rounded-full blur-3xl" />
-    </div>
+  <section id="home" class="hero-section relative isolate overflow-hidden">
+    <div class="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
+    <div class="hero-glow hero-glow-primary absolute -z-10" aria-hidden="true" />
+    <div class="hero-glow hero-glow-secondary absolute -z-10" aria-hidden="true" />
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16">
-      <p class="text-lg md:text-xl text-[var(--md-sys-color-on-surface-variant)] mb-4 animate-fade-in">
-        {{ t('hero.greeting') }} 👋
-      </p>
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight">
-        <span class="bg-gradient-to-r from-[var(--md-sys-color-primary)] to-[var(--md-sys-color-tertiary)] bg-clip-text text-transparent">
-          {{ t('hero.tagline') }}
-        </span>
-      </h1>
-      <p class="text-lg md:text-xl text-[var(--md-sys-color-on-surface-variant)] max-w-2xl mx-auto mb-10">
-        {{ t('hero.subtitle') }}
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <AButton href="#works" variant="filled" size="lg">{{ t('hero.cta_works') }} ↓</AButton>
-        <AButton href="#contact" variant="outlined" size="lg">{{ t('hero.cta_contact') }}</AButton>
+    <div class="hero-layout max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div class="hero-copy min-w-0">
+        <p class="hero-eyebrow">
+          <span class="hero-eyebrow-dot" aria-hidden="true" />
+          {{ t('hero.greeting') }} 👋
+        </p>
+        <h1 class="hero-title">
+          <span>{{ t('hero.tagline') }}</span>
+        </h1>
+        <p class="hero-subtitle">{{ t('hero.subtitle') }}</p>
+        <div class="hero-actions">
+          <AButton href="#works" variant="filled" size="lg">{{ t('hero.cta_works') }} <span aria-hidden="true">↗</span></AButton>
+          <AButton href="#contact" variant="outlined" size="lg">{{ t('hero.cta_contact') }}</AButton>
+        </div>
+        <div class="hero-proof" aria-hidden="true">
+          <span>Nuxt 4</span>
+          <span>Vue 3</span>
+          <span>Cloudflare</span>
+        </div>
       </div>
-      <div class="mt-16 animate-bounce">
-        <span class="text-2xl text-[var(--md-sys-color-on-surface-variant)] opacity-50">↓</span>
+
+      <div class="hero-art" aria-label="Selected project previews">
+        <div class="hero-art-frame">
+          <div class="hero-art-topline">
+            <span class="hero-art-label">SELECTED WORK</span>
+            <span class="hero-art-mark" aria-hidden="true">✳</span>
+          </div>
+          <div class="hero-art-collage">
+            <figure
+              v-for="visual in featuredVisuals"
+              :key="visual.src"
+              :class="['hero-visual', visual.class]"
+            >
+              <img :src="visual.src" :alt="visual.alt" :fetchpriority="visual.class === 'hero-visual-primary' ? 'high' : 'auto'" />
+              <figcaption>{{ visual.alt }}</figcaption>
+            </figure>
+          </div>
+          <div class="hero-art-footer">
+            <span>Design-minded engineering</span>
+            <span aria-hidden="true">↗</span>
+          </div>
+        </div>
+        <span class="hero-orbit hero-orbit-one" aria-hidden="true" />
+        <span class="hero-orbit hero-orbit-two" aria-hidden="true" />
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(10px); }
+.hero-section {
+  min-height: min(860px, 100svh);
+  display: flex;
+  align-items: center;
+  padding-top: 7.5rem;
+  padding-bottom: 5rem;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--md-sys-color-surface) 94%, var(--md-sys-color-primary-container)), var(--md-sys-color-surface) 62%);
+}
+
+.hero-grid {
+  opacity: 0.32;
+  background-image: linear-gradient(to right, var(--md-sys-color-outline-variant) 1px, transparent 1px), linear-gradient(to bottom, var(--md-sys-color-outline-variant) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(to right, black, transparent 78%);
+}
+
+.hero-glow {
+  width: min(40vw, 34rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.22;
+}
+
+.hero-glow-primary {
+  top: 8%;
+  left: -12%;
+  background: var(--md-sys-color-primary-container);
+}
+
+.hero-glow-secondary {
+  right: -14%;
+  bottom: -16%;
+  background: var(--md-sys-color-tertiary-container);
+}
+
+.hero-layout {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.94fr);
+  align-items: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.hero-copy {
+  max-width: 39rem;
+  animation: rise-in 700ms ease-out both;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.hero-eyebrow-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--md-sys-color-tertiary);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--md-sys-color-tertiary) 15%, transparent);
+}
+
+.hero-title {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--md-sys-color-on-surface);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 7.3vw, 6.9rem);
+  font-weight: 700;
+  letter-spacing: -0.075em;
+  line-height: 0.94;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.hero-title span {
+  background: linear-gradient(120deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  max-width: 32rem;
+  margin: 1.75rem 0 0;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.hero-actions :deep(a) {
+  min-height: 3.25rem;
+}
+
+.hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 2.25rem;
+}
+
+.hero-proof span {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--md-sys-color-surface) 65%, transparent);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.hero-art {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  animation: rise-in 850ms 100ms ease-out both;
+}
+
+.hero-art-frame {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-outline-variant) 75%, transparent);
+  border-radius: 1.75rem;
+  background: color-mix(in srgb, var(--md-sys-color-surface-container-low) 88%, transparent);
+  box-shadow: 0 2rem 5rem -2.5rem color-mix(in srgb, var(--md-sys-color-on-surface) 35%, transparent);
+  transform: rotate(1.5deg);
+  backdrop-filter: blur(14px);
+}
+
+.hero-art-topline,
+.hero-art-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.hero-art-label {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.hero-art-mark {
+  color: var(--md-sys-color-tertiary);
+  font-size: 1.5rem;
+}
+
+.hero-art-collage {
+  position: relative;
+  min-height: clamp(17rem, 35vw, 27rem);
+  margin: 1rem 0;
+}
+
+.hero-visual {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  padding: 0.45rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 0.95rem;
+  background: var(--md-sys-color-surface);
+  box-shadow: 0 1.2rem 2.5rem -1.5rem rgb(18 15 30 / 48%);
+}
+
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.6rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.hero-visual figcaption {
+  padding: 0.55rem 0.35rem 0.2rem;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.hero-visual-primary {
+  z-index: 2;
+  top: 4%;
+  left: 7%;
+  width: 77%;
+  height: 72%;
+  transform: rotate(-3deg);
+}
+
+.hero-visual-secondary {
+  z-index: 3;
+  right: 0;
+  bottom: 1%;
+  width: 53%;
+  height: 57%;
+  transform: rotate(4deg);
+}
+
+.hero-visual-tertiary {
+  z-index: 1;
+  right: 4%;
+  top: 2%;
+  width: 37%;
+  height: 43%;
+  transform: rotate(7deg);
+}
+
+.hero-art-footer {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.8rem;
+}
+
+.hero-art-footer span:last-child {
+  color: var(--md-sys-color-primary);
+  font-size: 1.1rem;
+}
+
+.hero-orbit {
+  position: absolute;
+  z-index: 0;
+  width: 5rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 38%, transparent);
+  border-radius: 50%;
+}
+
+.hero-orbit-one {
+  top: -1rem;
+  right: -0.5rem;
+}
+
+.hero-orbit-two {
+  bottom: -0.5rem;
+  left: -0.5rem;
+  width: 2.75rem;
+  background: var(--md-sys-color-tertiary-container);
+  opacity: 0.7;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(1.25rem); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out;
+
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 0;
+    padding-top: 7rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .hero-title {
+    max-width: 12ch;
+    font-size: clamp(3rem, 15vw, 5rem);
+    letter-spacing: -0.07em;
+  }
+
+  .hero-subtitle {
+    margin-top: 1.25rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .hero-actions :deep(a) {
+    width: 100%;
+    padding-inline: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-art {
+    width: min(100%, 34rem);
+    margin: 0 auto;
+    padding: 0.7rem;
+  }
+
+  .hero-art-collage {
+    min-height: clamp(15rem, 70vw, 22rem);
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-copy,
+  .hero-art {
+    animation: none;
+  }
 }
 </style>
