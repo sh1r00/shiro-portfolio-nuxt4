@@ -40,4 +40,5 @@ Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's gen
 - A private assets bucket and a separate `hello` Neon Function were provisioned. The Function and application routes were smoke-tested; the bucket and Function are not runtime dependencies of Dice Arena. The app does not use Neon Object Storage or Realtime.
 
 ## TODO / Roadmap
+- [ ] Configure the R2 bucket and `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_URL` values to re-enable admin image uploads.
 - [ ] Point a custom domain (optional) — for client-facing work; a single wildcard domain can cover all sites.
