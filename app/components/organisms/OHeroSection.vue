@@ -25,8 +25,8 @@ const featuredVisuals = [
         </h1>
         <p class="hero-subtitle">{{ t('hero.subtitle') }}</p>
         <div class="hero-actions">
-          <AButton href="#works" variant="filled" size="lg">{{ t('hero.cta_works') }} <span aria-hidden="true">↗</span></AButton>
-          <AButton href="#contact" variant="outlined" size="lg">{{ t('hero.cta_contact') }}</AButton>
+          <AButton v-magnetic href="#works" variant="filled" size="lg">{{ t('hero.cta_works') }} <span aria-hidden="true">↗</span></AButton>
+          <AButton v-magnetic href="#contact" variant="outlined" size="lg">{{ t('hero.cta_contact') }}</AButton>
         </div>
         <div class="hero-proof" aria-hidden="true">
           <span>Nuxt 4</span>
@@ -93,12 +93,27 @@ const featuredVisuals = [
   top: 8%;
   left: -12%;
   background: var(--md-sys-color-primary-container);
+  animation: aurora-drift 16s ease-in-out infinite;
 }
 
 .hero-glow-secondary {
   right: -14%;
   bottom: -16%;
   background: var(--md-sys-color-tertiary-container);
+  animation: aurora-drift 22s ease-in-out -7s infinite;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5%, 4%) scale(1.12);
+  }
+  66% {
+    transform: translate(-4%, -3%) scale(0.94);
+  }
 }
 
 .hero-layout {

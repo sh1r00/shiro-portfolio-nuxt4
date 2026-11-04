@@ -15,10 +15,11 @@ useHead(() => ({
 
 <template>
   <OHeroSection />
-  <OStatsSection />
-  <OWorksSection />
-  <OScreenshotsCarousel />
-  <OSkillsSection />
-  <OAboutSection />
-  <OContactSection />
+  <MMarquee />
+  <OStatsSection v-reveal />
+  <OWorksSection v-reveal />
+  <OScreenshotsCarousel v-reveal />
+  <OSkillsSection v-reveal />
+  <OAboutSection v-reveal />
+  <OContactSection v-reveal />
 </template>
