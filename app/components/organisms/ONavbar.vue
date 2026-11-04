@@ -4,9 +4,9 @@ const darkMode = useDarkModeStore()
 
 const navItems = [
   { key: 'home', href: '#home' },
-  { key: 'skills', href: '#skills' },
   { key: 'works', href: '#works' },
   { key: 'screenshots', href: '#screenshots' },
+  { key: 'skills', href: '#skills' },
   { key: 'contact', href: '#contact' },
 ]
 

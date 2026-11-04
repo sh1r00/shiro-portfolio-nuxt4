@@ -39,7 +39,6 @@ const stats = computed(() => [
   border-radius: 1.1rem;
   background: var(--md-sys-color-surface-container-low);
   box-shadow: 0 1.5rem 3rem -2.5rem color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
-  transform: translateY(-1.75rem);
 }
 
 .stats-item {
