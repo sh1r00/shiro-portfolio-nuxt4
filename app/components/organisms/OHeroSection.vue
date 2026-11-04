@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const taglineWords = computed(() => t('hero.tagline').split(' '))
 
 const featuredVisuals = [
   { src: '/img/shop-tulu.png', alt: 'Shop Tulu', class: 'hero-visual-primary' },
@@ -9,10 +10,11 @@ const featuredVisuals = [
 </script>
 
 <template>
-  <section id="home" class="hero-section relative isolate overflow-hidden">
+  <section v-spotlight id="home" class="hero-section relative isolate overflow-hidden">
     <div class="hero-grid absolute inset-0 -z-10" aria-hidden="true" />
     <div class="hero-glow hero-glow-primary absolute -z-10" aria-hidden="true" />
     <div class="hero-glow hero-glow-secondary absolute -z-10" aria-hidden="true" />
+    <div class="hero-spotlight" aria-hidden="true" />
 
     <div class="hero-layout max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
       <div class="hero-copy min-w-0">
@@ -21,7 +23,7 @@ const featuredVisuals = [
           {{ t('hero.greeting') }} 👋
         </p>
         <h1 class="hero-title">
-          <span>{{ t('hero.tagline') }}</span>
+          <span v-for="(word, i) in taglineWords" :key="i" class="hero-word">{{ word }}</span>
         </h1>
         <p class="hero-subtitle">{{ t('hero.subtitle') }}</p>
         <div class="hero-actions">
@@ -36,7 +38,7 @@ const featuredVisuals = [
       </div>
 
       <div class="hero-art" aria-label="Selected project previews">
-        <div class="hero-art-frame">
+        <div v-tilt="5" class="hero-art-frame">
           <div class="hero-art-topline">
             <span class="hero-art-label">SELECTED WORK</span>
             <span class="hero-art-mark" aria-hidden="true">✳</span>
@@ -60,6 +62,11 @@ const featuredVisuals = [
         <span class="hero-orbit hero-orbit-two" aria-hidden="true" />
       </div>
     </div>
+
+    <a href="#works" class="hero-scroll-cue" :aria-label="t('hero.scroll')">
+      <span>{{ t('hero.scroll') }}</span>
+      <span class="hero-scroll-cue-chevron" aria-hidden="true">↓</span>
+    </a>
   </section>
 </template>
 
@@ -218,7 +225,6 @@ const featuredVisuals = [
   border-radius: 1.75rem;
   background: color-mix(in srgb, var(--md-sys-color-surface-container-low) 88%, transparent);
   box-shadow: 0 2rem 5rem -2.5rem color-mix(in srgb, var(--md-sys-color-on-surface) 35%, transparent);
-  transform: rotate(1.5deg);
   backdrop-filter: blur(14px);
 }
 
@@ -394,6 +400,92 @@ const featuredVisuals = [
 @media (prefers-reduced-motion: reduce) {
   .hero-copy,
   .hero-art {
+    animation: none;
+  }
+}
+
+/* --- Interactive hero effects --- */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    560px circle at var(--spot-x, 50%) var(--spot-y, 40%),
+    color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent),
+    transparent 62%
+  );
+}
+
+.hero-word {
+  display: inline-block;
+  margin-right: 0.28em;
+  transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), filter 220ms ease;
+}
+
+.hero-word:last-child {
+  margin-right: 0;
+}
+
+.hero-word:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.18) saturate(1.15);
+}
+
+.hero-subtitle {
+  position: relative;
+}
+
+.hero-subtitle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.7rem;
+  width: 100%;
+  max-width: 15rem;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--md-sys-color-primary), var(--md-sys-color-tertiary));
+  transform-origin: left;
+  animation: draw-in 1.1s 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes draw-in {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  transform: translateX(-50%);
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-scroll-cue-chevron {
+  color: var(--md-sys-color-primary);
+  font-size: 1.1rem;
+  animation: scroll-bounce 1.7s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-cue-chevron {
     animation: none;
   }
 }
