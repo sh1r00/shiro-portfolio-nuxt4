@@ -64,7 +64,7 @@ const others = computed(() => caseStudies.filter(c => c.slug !== cs.value?.slug)
     <section class="cs-section">
       <h2>More case studies</h2>
       <div class="cs-more">
-        <NuxtLink v-for="o in others" :key="o.slug" :to="`/case-study/${o.slug}`" class="cs-more-card">
+        <NuxtLink v-for="o in others" :key="o.slug" :to="`/blog/${o.slug}`" class="cs-more-card">
           <span class="cs-more-title">{{ o.title }}</span>
           <span aria-hidden="true">↗</span>
         </NuxtLink>

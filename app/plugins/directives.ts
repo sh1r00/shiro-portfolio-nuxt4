@@ -13,10 +13,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       const io = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {
-            if (e.isIntersecting) {
-              el.classList.add('is-revealed')
-              io.unobserve(el)
-            }
+            el.classList.toggle('is-revealed', e.isIntersecting)
           }
         },
         { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },

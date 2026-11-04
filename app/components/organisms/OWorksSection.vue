@@ -66,7 +66,7 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
           />
         </div>
         <div v-if="isMarketingGenFeatured" class="works-case-study">
-          <NuxtLink to="/case-study/kphone-marketing" class="works-case-study-link">
+          <NuxtLink to="/blog/kphone-marketing" class="works-case-study-link">
             <span>📖 Read the full kPhone Marketing case study</span>
             <span aria-hidden="true">↗</span>
           </NuxtLink>
@@ -78,7 +78,7 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
             <p>Deep dives into how each project was built</p>
           </div>
           <div class="works-case-studies-grid">
-            <NuxtLink v-for="c in caseStudies" :key="c.slug" :to="`/case-study/${c.slug}`" class="works-case-study-chip">
+            <NuxtLink v-for="c in caseStudies" :key="c.slug" :to="`/blog/${c.slug}`" class="works-case-study-chip">
               <span>{{ c.title }}</span>
               <span aria-hidden="true">↗</span>
             </NuxtLink>
