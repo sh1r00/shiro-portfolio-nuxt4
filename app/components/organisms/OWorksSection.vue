@@ -64,6 +64,12 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
             :is-live="true"
           />
         </div>
+        <div v-if="isMarketingGenFeatured" class="works-case-study">
+          <NuxtLink to="/case-study" class="works-case-study-link">
+            <span>📖 Read the full kPhone Marketing case study</span>
+            <span aria-hidden="true">↗</span>
+          </NuxtLink>
+        </div>
         <MProjectSpotlight />
       </div>
 
@@ -231,6 +237,33 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
 
 .works-template-grid {
   padding-bottom: 1.5rem;
+}
+
+.works-case-study {
+  margin-top: 1rem;
+}
+
+.works-case-study-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 45%, var(--md-sys-color-outline-variant));
+  border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--md-sys-color-primary-container) 45%, var(--md-sys-color-surface));
+  color: var(--md-sys-color-on-surface);
+  font-weight: 650;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.works-case-study-link:hover {
+  border-color: var(--md-sys-color-primary);
+  background: color-mix(in srgb, var(--md-sys-color-primary-container) 70%, var(--md-sys-color-surface));
+}
+
+.works-case-study-link span:last-child {
+  color: var(--md-sys-color-primary);
 }
 
 @media (min-width: 900px) {
