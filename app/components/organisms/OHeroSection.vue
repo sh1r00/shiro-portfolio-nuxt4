@@ -23,7 +23,7 @@ const featuredVisuals = [
           {{ t('hero.greeting') }} 👋
         </p>
         <h1 class="hero-title">
-          <span v-for="(word, i) in taglineWords" :key="i" class="hero-word">{{ word }}</span>
+          <span v-for="(word, i) in taglineWords" :key="i" class="hero-word" :style="{ animationDelay: `${i * 60}ms` }">{{ word }}</span>
         </h1>
         <p class="hero-subtitle">{{ t('hero.subtitle') }}</p>
         <div class="hero-actions">
@@ -37,7 +37,7 @@ const featuredVisuals = [
         </div>
       </div>
 
-      <div class="hero-art" aria-label="Selected project previews">
+      <div v-parallax="0.12" class="hero-art" aria-label="Selected project previews">
         <div v-tilt="5" class="hero-art-frame">
           <div class="hero-art-topline">
             <span class="hero-art-label">SELECTED WORK</span>
@@ -214,7 +214,6 @@ const featuredVisuals = [
   position: relative;
   min-width: 0;
   padding: 1rem;
-  animation: rise-in 850ms 100ms ease-out both;
 }
 
 .hero-art-frame {
@@ -415,11 +414,13 @@ const featuredVisuals = [
     color-mix(in srgb, var(--md-sys-color-primary) 10%, transparent),
     transparent 62%
   );
+  animation: spotlight-breathe 7s ease-in-out infinite;
 }
 
 .hero-word {
   display: inline-block;
   margin-right: 0.28em;
+  animation: word-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) backwards;
   transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1), filter 220ms ease;
 }
 
@@ -487,6 +488,31 @@ const featuredVisuals = [
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll-cue-chevron {
     animation: none;
+  }
+}
+
+@keyframes word-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes spotlight-breathe {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* Mobile: cut GPU-expensive blur + hide the overlapping scroll cue */
+@media (max-width: 767px) {
+  .hero-glow {
+    filter: blur(40px);
+  }
+
+  .hero-art-frame {
+    backdrop-filter: none;
+  }
+
+  .hero-scroll-cue {
+    display: none;
   }
 }
 </style>

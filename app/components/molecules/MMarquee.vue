@@ -73,4 +73,8 @@ const items = [
 @media (prefers-reduced-motion: reduce) {
   .marquee-track { animation: none; }
 }
+
+@media (hover: none) {
+  .marquee-track { animation-duration: 48s; }
+}
 </style>

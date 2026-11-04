@@ -142,3 +142,12 @@ body::after {
   opacity: 1;
   transform: none;
 }
+
+/* Tap feedback on touch devices (no hover available) */
+@media (hover: none) {
+  a:active,
+  button:active,
+  summary:active {
+    opacity: 0.7;
+  }
+}
