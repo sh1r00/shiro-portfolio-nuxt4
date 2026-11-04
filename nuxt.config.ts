@@ -15,12 +15,13 @@ export default defineNuxtConfig({
   components: [{ path: '~/components', pathPrefix: false }],
   vite: { plugins: [tailwindcss()] },
   i18n: {
+    baseUrl: 'https://shiro-portfolio-nuxt4.rasisg.workers.dev',
     strategy: 'prefix_except_default',
     defaultLocale: 'en',
     locales: [
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'es', iso: 'es-ES', name: 'Español', file: 'es.json' },
-      { code: 'am', iso: 'am-ET', name: 'አማርኛ', file: 'am.json' },
+      { code: 'en', language: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'es', language: 'es', iso: 'es-ES', name: 'Español', file: 'es.json' },
+      { code: 'am', language: 'am', iso: 'am-ET', name: 'አማርኛ', file: 'am.json' },
     ],
     detectBrowserLanguage: false,
     lazy: true,
