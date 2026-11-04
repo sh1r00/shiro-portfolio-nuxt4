@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
         const res = await fetch(item.url, {
           method: 'GET',
           redirect: 'follow',
-          signal: AbortSignal.timeout(9000),
+          signal: AbortSignal.timeout(15000),
         })
         return {
           title: item.title,
