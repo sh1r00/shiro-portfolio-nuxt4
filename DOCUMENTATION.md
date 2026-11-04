@@ -44,6 +44,9 @@ Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's gen
 - Keep the paid-only AI Gateway declaration conditional for Neon Free-tier deployments. The already-provisioned gateway is retained, but Dice Arena does not use it.
 - A private assets bucket and a separate `hello` Neon Function were provisioned. The Function and application routes were smoke-tested; the bucket and Function are not runtime dependencies of Dice Arena. The app does not use Neon Object Storage or Realtime.
 
+## Case Studies
+Per-project case studies live in `app/data/caseStudies.ts` and render at `/case-study/[slug]` — one page, slug per live project (`kphone-marketing`, `shop-tulu`, `credit-wiz`, `money-conversion`, `mahari-global`, `skilled-trades`, `dice-arena`). Each covers base start, weaknesses, fixes, problems + fixes, and lessons. The Works section renders a "Case studies" quick-nav linking to each.
+
 ## TODO / Roadmap
 - [ ] Add Cloudflare R2 for uploaded media (keep Turso for structured portfolio data): create a bucket and configure `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`, `R2_BUCKET`, and `R2_PUBLIC_URL` to re-enable admin image uploads.
 - [ ] Point a custom domain (optional) — for client-facing work; a single wildcard domain can cover all sites.

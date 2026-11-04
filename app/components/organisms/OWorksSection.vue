@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { caseStudies } from '~/data/caseStudies'
 const { t } = useI18n()
 const { live, templates } = useWorks()
 function isMarketingGenUrl(url: string) {
@@ -65,11 +66,25 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
           />
         </div>
         <div v-if="isMarketingGenFeatured" class="works-case-study">
-          <NuxtLink to="/case-study" class="works-case-study-link">
+          <NuxtLink to="/case-study/kphone-marketing" class="works-case-study-link">
             <span>📖 Read the full kPhone Marketing case study</span>
             <span aria-hidden="true">↗</span>
           </NuxtLink>
         </div>
+
+        <div class="works-case-studies">
+          <div class="works-case-studies-head">
+            <h3>Case studies</h3>
+            <p>Deep dives into how each project was built</p>
+          </div>
+          <div class="works-case-studies-grid">
+            <NuxtLink v-for="c in caseStudies" :key="c.slug" :to="`/case-study/${c.slug}`" class="works-case-study-chip">
+              <span>{{ c.title }}</span>
+              <span aria-hidden="true">↗</span>
+            </NuxtLink>
+          </div>
+        </div>
+
         <MProjectSpotlight />
       </div>
 
@@ -263,6 +278,58 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
 }
 
 .works-case-study-link span:last-child {
+  color: var(--md-sys-color-primary);
+}
+
+.works-case-studies {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--md-sys-color-outline-variant);
+}
+
+.works-case-studies-head {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.works-case-studies-head h3 {
+  color: var(--md-sys-color-on-surface);
+  font-size: 1.1rem;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.works-case-studies-head p {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.82rem;
+}
+
+.works-case-studies-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.works-case-study-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 999px;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.82rem;
+  font-weight: 650;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.works-case-study-chip:hover {
+  border-color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-surface-container-low);
+}
+
+.works-case-study-chip span:last-child {
   color: var(--md-sys-color-primary);
 }
 

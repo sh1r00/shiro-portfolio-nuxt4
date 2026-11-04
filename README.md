@@ -5,7 +5,10 @@ Full-stack developer portfolio (SSR). Live at
 **[shiro-portfolio-nuxt4.rasisg.workers.dev](https://shiro-portfolio-nuxt4.rasisg.workers.dev)**.
 
 ## About
-Lists live projects + reusable templates (editable via an admin panel), an About section with DB-backed bio, a Contact page (mailto + form), and an admin dashboard. i18n (en/es/am), PWA, M3 dark mode.
+Lists live projects + reusable templates (editable via an admin panel), an About section with DB-backed bio, a Contact page (mailto + form), an admin dashboard, and **per-project case studies** — one page (`/case-study/[slug]`) with a slug per live project, reachable via a "Case studies" quick-nav in the Works section. i18n (en/es/am), PWA, M3 dark mode.
+
+## Case studies
+Case studies live in `app/data/caseStudies.ts` (base start, weaknesses, fixes, problems + fixes, lessons) and render through `app/pages/case-study/[slug].vue`. The Works section renders a quick-nav of every case study.
 
 ## Stack
 Nuxt 4 (SSR) · Vue 3 · Tailwind v4 · @nuxtjs/i18n · @vite-pwa/nuxt · nuxt-security · Pinia · Turso (libSQL) · bcryptjs · Cloudflare R2

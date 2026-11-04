@@ -5,7 +5,7 @@ const head = useLocaleHead({ seo: true })
 useHead(() => ({
   title: 'shiro — where style meets function',
   meta: [
-    { name: 'description', content: 'Full-stack web development portfolio — Nuxt 4, Vue 3, M3 Design, 16+ projects deployed' },
+    { name: 'description', content: 'Full-stack web development portfolio — Nuxt 4, Vue 3, M3 Design, production apps and ready-to-use templates' },
     ...(head.value.meta || []),
   ],
   link: [...(head.value.link || [])],
