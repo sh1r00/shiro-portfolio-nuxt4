@@ -64,20 +64,6 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
             :is-live="true"
           />
         </div>
-        <div v-if="isMarketingGenFeatured" class="works-case-study">
-          <NuxtLink to="/blog/kphone-marketing" class="works-case-study-link">
-            <span>📖 Read the full kPhone Marketing case study</span>
-            <span aria-hidden="true">↗</span>
-          </NuxtLink>
-        </div>
-
-        <div class="works-case-studies">
-          <NuxtLink to="/blog" class="works-case-studies-link">
-            Read all case studies
-            <span aria-hidden="true">→</span>
-          </NuxtLink>
-        </div>
-
         <MProjectSpotlight />
       </div>
 
@@ -245,62 +231,6 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
 
 .works-template-grid {
   padding-bottom: 1.5rem;
-}
-
-.works-case-study {
-  margin-top: 1rem;
-}
-
-.works-case-study-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1.1rem 1.4rem;
-  border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 45%, var(--md-sys-color-outline-variant));
-  border-radius: 1.1rem;
-  background: color-mix(in srgb, var(--md-sys-color-primary-container) 45%, var(--md-sys-color-surface));
-  color: var(--md-sys-color-on-surface);
-  font-weight: 650;
-  transition: background 180ms ease, border-color 180ms ease;
-}
-
-.works-case-study-link:hover {
-  border-color: var(--md-sys-color-primary);
-  background: color-mix(in srgb, var(--md-sys-color-primary-container) 70%, var(--md-sys-color-surface));
-}
-
-.works-case-study-link span:last-child {
-  color: var(--md-sys-color-primary);
-}
-
-.works-case-studies {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--md-sys-color-outline-variant);
-}
-
-.works-case-studies-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--md-sys-color-on-surface);
-  font-size: 0.9rem;
-  font-weight: 650;
-  transition: color 180ms ease;
-}
-
-.works-case-studies-link span {
-  color: var(--md-sys-color-primary);
-  transition: transform 180ms ease;
-}
-
-.works-case-studies-link:hover {
-  color: var(--md-sys-color-primary);
-}
-
-.works-case-studies-link:hover span {
-  transform: translateX(3px);
 }
 
 @media (min-width: 900px) {

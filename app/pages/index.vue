@@ -18,6 +18,7 @@ useHead(() => ({
   <MMarquee />
   <OStatsSection v-reveal />
   <OWorksSection v-reveal />
+  <OCaseStudiesSection v-reveal />
   <OScreenshotsCarousel v-reveal />
   <OSkillsSection v-reveal />
   <OAboutSection v-reveal />
