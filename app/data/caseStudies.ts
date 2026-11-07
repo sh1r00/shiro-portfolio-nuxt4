@@ -122,8 +122,8 @@ export const caseStudies: CaseStudy[] = [
     lessons: ['Even a utility SPA should ship a handful of SEO content pages to be discoverable.'],
   },
   {
-    slug: 'mahari-global',
-    title: 'Mahari Global Solutions',
+    slug: 'mehari-global',
+    title: 'Mehari Global Solutions',
     url: 'https://meti-site.onrender.com',
     host: 'meti-site.onrender.com',
     stack: 'Nuxt 4 · @nuxtjs/i18n · PWA · nuxt-security',

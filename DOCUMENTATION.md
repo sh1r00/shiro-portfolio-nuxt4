@@ -45,7 +45,7 @@ Dice Arena is a Nuxt 4 web app deployed as a Cloudflare Worker using Nitro's gen
 - A private assets bucket and a separate `hello` Neon Function were provisioned. The Function and application routes were smoke-tested; the bucket and Function are not runtime dependencies of Dice Arena. The app does not use Neon Object Storage or Realtime.
 
 ## Case Studies
-Per-project case studies live in `app/data/caseStudies.ts` and render at `/case-study/[slug]` — one page, slug per live project (`kphone-marketing`, `shop-tulu`, `credit-wiz`, `money-conversion`, `mahari-global`, `skilled-trades`, `dice-arena`). Each covers base start, weaknesses, fixes, problems + fixes, and lessons. The Works section renders a "Case studies" quick-nav linking to each.
+Per-project case studies live in `app/data/caseStudies.ts` and render at `/case-study/[slug]` — one page, slug per live project (`kphone-marketing`, `shop-tulu`, `credit-wiz`, `money-conversion`, `mehari-global`, `skilled-trades`, `dice-arena`). Each covers base start, weaknesses, fixes, problems + fixes, and lessons. The Works section renders a "Case studies" quick-nav linking to each.
 
 ## TODO / Roadmap
 - [x] Real screenshots for the 7 live projects — captured via `scripts/capture-screenshots.mjs` (Playwright + system Edge) and DB `thumbnail` fields set via `scripts/update-thumbnails.mjs`.

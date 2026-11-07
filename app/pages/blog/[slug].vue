@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { caseStudies, caseStudyBySlug } from '~/data/caseStudies'
+import { caseStudyBodies } from '~/data/caseStudyBodies'
+import { renderMarkdown } from '~/utils/renderMarkdown'
 
 const route = useRoute()
 const cs = computed(() => caseStudyBySlug(String(route.params.slug)))
@@ -10,6 +12,11 @@ useSeoMeta({
 })
 
 const others = computed(() => caseStudies.filter(c => c.slug !== cs.value?.slug))
+
+const bodyHtml = computed(() => {
+  const body = cs.value ? caseStudyBodies[cs.value.slug] : ''
+  return body ? renderMarkdown(body) : ''
+})
 </script>
 
 <template>
@@ -25,10 +32,7 @@ const others = computed(() => caseStudies.filter(c => c.slug !== cs.value?.slug)
       </div>
     </header>
 
-    <section class="cs-section">
-      <h2>Base start</h2>
-      <p>{{ cs.baseStart }}</p>
-    </section>
+    <section v-if="bodyHtml" class="cs-section cs-body" v-html="bodyHtml"></section>
 
     <section class="cs-section">
       <h2>Weaknesses</h2>
@@ -186,6 +190,41 @@ const others = computed(() => caseStudies.filter(c => c.slug !== cs.value?.slug)
 }
 .cs-more-card:hover { border-color: var(--md-sys-color-primary); }
 .cs-more-card span:last-child { color: var(--md-sys-color-primary); }
+
+/* Long-form body (markdown-rendered) */
+.cs-body h2,
+.cs-body h3 {
+  color: var(--md-sys-color-on-surface);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 2.25rem 0 1rem;
+}
+.cs-body h2 { font-size: 1.55rem; }
+.cs-body h3 { font-size: 1.25rem; }
+.cs-body p { color: var(--md-sys-color-on-surface-variant); line-height: 1.8; margin-bottom: 1.25rem; }
+.cs-body ul { color: var(--md-sys-color-on-surface-variant); line-height: 1.7; padding-left: 1.25rem; display: grid; gap: 0.5rem; margin-bottom: 1.25rem; }
+.cs-body pre {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.25rem;
+  border-radius: 0.75rem;
+  background: var(--md-sys-color-surface-container-high);
+  overflow-x: auto;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--md-sys-color-on-surface);
+}
+.cs-body code {
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--md-sys-color-surface-container-high);
+  padding: 0.1em 0.35em;
+  border-radius: 0.3em;
+}
+.cs-body pre code { background: transparent; padding: 0; font-size: inherit; }
+.cs-body a { color: var(--md-sys-color-primary); font-weight: 650; }
 .cs-notfound { max-width: 46rem; margin: 0 auto; padding: 10rem 1.25rem; }
 @media (max-width: 640px) {
   .cs-more { grid-template-columns: minmax(0, 1fr); }
