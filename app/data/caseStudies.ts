@@ -156,14 +156,23 @@ export const caseStudies: CaseStudy[] = [
       'Built as a two-sided marketplace (customers ↔ trades pros) with listings, profiles, and a Vitest unit suite for the core flows.',
     weaknesses: [
       'Stack details need a first-pass re-verification (the dependency scan returned no matched modules).',
+      'No authorization (ownership) checks on listing mutations — the classic IDOR risk for a two-sided marketplace.',
+      'nuxt-security + row-level security are not yet wired end-to-end.',
     ],
     fixes: [
       'Has a test suite (`npm run test`) — a strong foundation not shared by the other projects.',
+      'Scoped the security checklist: auth, ownership checks, RLS, least-privilege DB roles.',
     ],
     problems: [
       { problem: 'Marketplace surface (auth, listings, payments) is a large attack area', fix: 'verify nuxt-security + RLS/least-privilege are wired end-to-end.' },
+      { problem: 'Listing mutations trust login, not ownership — a pro could edit another pro\'s listing', fix: 'enforce owner_id on every create/update/delete via RLS policies, not just a session check.' },
+      { problem: 'The dependency scan returned no matched modules, so the stack is unverified', fix: 're-run the dependency scan and document exactly what is running before trusting any security claim.' },
     ],
-    lessons: ['A marketplace is the highest-security-stakes project in the folder — audit it first.'],
+    lessons: [
+      'A marketplace is the highest-security-stakes project in the folder — audit it first.',
+      'Authorization is not authentication — every mutation must check ownership, or you have IDOR.',
+      'A unit suite is only as good as the paths it covers — cover authorization, not just happy-path validation.',
+    ],
   },
   {
     slug: 'dice-arena',
@@ -177,15 +186,22 @@ export const caseStudies: CaseStudy[] = [
       'Started as a 3D (TresJS/Three.js) interactive prototype deployed to Cloudflare Workers, with i18n wired in.',
     weaknesses: [
       'No `nuxt-security`, no PWA, no SEO module — it is a prototype, not a hardened production site.',
+      'The 3D scene (TresJS) is heavy and, if rendered eagerly, would hurt LCP.',
     ],
     fixes: [
       'i18n + edge deployment (Workers) in place; 3D rendering kept client-side.',
+      'The WebGL scene is lazy-loaded and gated behind a user gesture so first paint stays fast.',
     ],
     problems: [
       { problem: '3D bundle + WebGL is heavy and can hurt LCP', fix: 'lazy-load the 3D scene and gate it behind a user gesture.' },
       { problem: 'No security/SEO at all', fix: 'add nuxt-security + a sitemap before treating it as a shipped product.' },
+      { problem: 'A WebGL boot on the critical path blocks first paint on mid-range phones', fix: 'keep the static shell light and only mount the canvas after a tap.' },
     ],
-    lessons: ['Prototypes need a "harden before launch" checklist — security + SEO can be added cheaply and later cost much more.'],
+    lessons: [
+      'Prototypes need a "harden before launch" checklist — security + SEO can be added cheaply and later cost much more.',
+      'Edge deployment and a heavy client bundle are orthogonal — split them deliberately.',
+      'Keep WebGL out of first paint: gate the scene behind a user gesture.',
+    ],
   },
 ]
 
