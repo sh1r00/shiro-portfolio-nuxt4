@@ -12,7 +12,7 @@ const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'tem
   { title: 'Mehari Global Solutions', url: 'https://meti-site.onrender.com', thumbnail: '', kind: 'live' },
   { title: 'Skilled Trades Marketplace', url: 'https://trades-markets.netlify.app', thumbnail: '', kind: 'live' },
   { title: 'SH1R00 Portfolio', url: 'https://shiro-portfolio-sh1r00.netlify.app', thumbnail: '', kind: 'live' },
-  { title: 'Yack-Shack', url: 'https://yack-shack.pages.dev', thumbnail: '', kind: 'live' },
+  { title: 'Yack-Shack', url: 'https://yack-shack.pages.dev', thumbnail: 'https://yack-shack.pages.dev/icons/yak-banner.svg', kind: 'live' },
   { title: 'Savora Restaurant', url: 'https://restaurant-editable.netlify.app', thumbnail: '/img/restaurant-editable.png', kind: 'template' },
   { title: 'Terra & Flame', url: 'https://restaurant-horizontal.netlify.app', thumbnail: '', kind: 'template' },
   { title: 'Restaurant Vertical', url: 'https://restaurant-vertical.netlify.app', thumbnail: '', kind: 'template' },
