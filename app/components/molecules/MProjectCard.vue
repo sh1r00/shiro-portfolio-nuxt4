@@ -5,6 +5,7 @@ defineProps<{
   url: string
   thumbnail?: string
   isLive?: boolean
+  isUpcoming?: boolean
   featured?: boolean
   featuredSite?: string
 }>()
@@ -34,6 +35,10 @@ defineProps<{
         <div v-if="isLive" class="project-card-live">
           <span class="project-card-live-dot" />
           {{ $t('works.live_badge') }}
+        </div>
+        <div v-else-if="isUpcoming" class="project-card-upcoming">
+          <span class="project-card-upcoming-dot" />
+          {{ $t('works.upcoming_badge') }}
         </div>
       </div>
 
@@ -180,6 +185,32 @@ defineProps<{
   border-radius: 50%;
   background: #79e4a4;
   box-shadow: 0 0 0 3px rgb(121 228 164 / 18%);
+}
+
+.project-card-upcoming {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid rgb(255 255 255 / 28%);
+  border-radius: 999px;
+  background: rgb(41 28 10 / 78%);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(8px);
+}
+
+.project-card-upcoming-dot {
+  width: 0.4rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f5c66b;
+  box-shadow: 0 0 0 3px rgb(245 198 107 / 18%);
 }
 
 .project-card-copy {

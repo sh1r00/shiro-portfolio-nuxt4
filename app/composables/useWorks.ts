@@ -3,7 +3,7 @@ export interface WorkItem {
   title: string
   url: string
   thumbnail: string
-  kind: 'live' | 'template'
+  kind: 'live' | 'template' | 'upcoming'
   sort_order: number
 }
 
@@ -11,7 +11,7 @@ export interface WorkItem {
 // hardcoded arrays in OWorksSection.vue.
 export function useWorks() {
   const toast = useToastStore()
-  const { data, pending, error } = useAsyncData<{ live: WorkItem[]; templates: WorkItem[] }>(
+  const { data, pending, error } = useAsyncData<{ live: WorkItem[]; templates: WorkItem[]; upcoming: WorkItem[] }>(
     'works',
     () => $fetch('/api/works'),
   )
@@ -25,6 +25,7 @@ export function useWorks() {
   return {
     live: computed(() => data.value?.live || []),
     templates: computed(() => data.value?.templates || []),
+    upcoming: computed(() => data.value?.upcoming || []),
     pending,
   }
 }

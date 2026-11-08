@@ -7,6 +7,6 @@ export default defineEventHandler(async (event) => {
     event,
     `SELECT id, title, url, thumbnail, kind, sort_order
      FROM portfolio_items
-     ORDER BY CASE kind WHEN 'live' THEN 0 ELSE 1 END, sort_order ASC`,
+     ORDER BY CASE kind WHEN 'live' THEN 0 WHEN 'upcoming' THEN 1 ELSE 2 END, sort_order ASC`,
   )
 })

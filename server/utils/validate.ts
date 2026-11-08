@@ -28,7 +28,7 @@ export function requireInt(v: unknown, field: string): number {
   return n
 }
 
-export function requireKind(v: unknown): 'live' | 'template' {
-  if (v !== 'live' && v !== 'template') throw createError({ statusCode: 400, statusMessage: 'kind must be "live" or "template"' })
+export function requireKind(v: unknown): 'live' | 'template' | 'upcoming' {
+  if (v !== 'live' && v !== 'template' && v !== 'upcoming') throw createError({ statusCode: 400, statusMessage: 'kind must be "live", "template", or "upcoming"' })
   return v
 }

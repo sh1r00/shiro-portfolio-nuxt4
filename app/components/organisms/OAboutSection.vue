@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const { content } = useContent()
-const { live, templates } = useWorks()
+const { live, templates, upcoming } = useWorks()
 
 const bio = computed(() => locale.value === 'en' && content.value.about_bio
   ? content.value.about_bio
@@ -9,7 +9,7 @@ const bio = computed(() => locale.value === 'en' && content.value.about_bio
 const email = computed(() => content.value.contact_email || 'joedoe98210@gmail.com')
 
 const aboutStats = computed(() => [
-  { value: String(live.value.length + templates.value.length), key: 'projects' },
+  { value: String(live.value.length + templates.value.length + upcoming.value.length), key: 'projects' },
   { value: '5', key: 'categories' },
   { value: '3', key: 'languages' },
   { value: '∞', key: 'detail' },

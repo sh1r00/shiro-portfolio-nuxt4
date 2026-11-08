@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
-const { live, templates } = useWorks()
+const { live, templates, upcoming } = useWorks()
 function isMarketingGenUrl(url: string) {
   try {
     return new URL(url).hostname.toLowerCase() === 'marketing-gen.pages.dev'
@@ -65,6 +65,26 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
           />
         </div>
         <MProjectSpotlight />
+      </div>
+
+      <div v-if="upcoming.length" class="mb-16">
+        <div class="works-subheading">
+          <span class="works-upcoming-mark" aria-hidden="true" />
+          <h3>
+            {{ t('works.upcoming') }}
+          </h3>
+          <p>{{ t('works.upcoming_desc') }}</p>
+        </div>
+        <div class="works-projects-grid">
+          <MProjectCard
+            v-for="project in upcoming"
+            :key="project.id"
+            :title="project.title"
+            :url="project.url"
+            :thumbnail="project.thumbnail || undefined"
+            :is-upcoming="true"
+          />
+        </div>
       </div>
 
       <details class="works-templates">
@@ -168,6 +188,14 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
   border-radius: 50%;
   background: #248b56;
   box-shadow: 0 0 0 4px color-mix(in srgb, #248b56 15%, transparent);
+}
+
+.works-upcoming-mark {
+  width: 0.55rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #d99a2b;
+  box-shadow: 0 0 0 4px color-mix(in srgb, #d99a2b 15%, transparent);
 }
 
 .works-projects-grid,
