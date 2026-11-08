@@ -69,11 +69,13 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
 
       <details class="works-templates">
         <summary>
-          <span>
-            <strong>{{ t('works.templates') }}</strong>
-            <small>{{ t('works.templates_desc') }} · {{ templates.length }}</small>
+          <span class="works-templates-summary">
+            <span class="works-templates-label">
+              <strong>{{ t('works.templates') }}</strong>
+              <small>{{ t('works.templates_desc') }} · {{ templates.length }}</small>
+            </span>
+            <span class="works-templates-toggle">{{ t('works.browse_templates') }} <span aria-hidden="true">↓</span></span>
           </span>
-          <span class="works-templates-toggle">{{ t('works.browse_templates') }} <span aria-hidden="true">↓</span></span>
         </summary>
         <div class="works-template-grid">
           <MProjectCard
@@ -184,22 +186,29 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
 }
 
 .works-templates summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  /* `display: block` — NOT flex. `summary { display: flex }` breaks the native
+     <details> toggle in iOS Safari (the "browse templates" disclosure wouldn't
+     open on mobile). Flex layout moves to the inner `.works-templates-summary`. */
+  display: block;
   padding: 1.4rem 0;
   cursor: pointer;
   list-style: none;
 }
 
-.works-templates summary::-webkit-details-marker {
-  display: none;
+.works-templates-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.works-templates summary > span:first-child {
+.works-templates-label {
   display: grid;
   gap: 0.25rem;
+}
+
+.works-templates summary::-webkit-details-marker {
+  display: none;
 }
 
 .works-templates summary strong {
@@ -253,7 +262,7 @@ const otherProjects = computed(() => live.value.filter(project => project.id !==
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .works-templates summary {
+  .works-templates-summary {
     align-items: flex-start;
   }
 
