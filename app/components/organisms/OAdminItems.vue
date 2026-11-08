@@ -6,7 +6,7 @@ const { items, loading, loadItems, createItem, updateItem, deleteItem } = useAdm
 const editing = ref<WorkItem | null>(null)
 const showForm = ref(false)
 const saving = ref(false)
-const form = reactive({ title: '', url: '', thumbnail: '', kind: 'template' as 'live' | 'template', sort_order: 0 })
+const form = reactive({ title: '', url: '', thumbnail: '', kind: 'template' as WorkItem['kind'], sort_order: 0 })
 
 const toast = useToastStore()
 const uploading = ref(false)
@@ -94,6 +94,7 @@ onMounted(() => loadItems())
             <select v-model="form.kind" class="w-full rounded-xl border border-[var(--md-sys-color-outline-variant)] bg-[var(--md-sys-color-surface)] px-3 py-2">
               <option value="template">Template</option>
               <option value="live">Live</option>
+              <option value="upcoming">Upcoming</option>
             </select>
           </div>
           <div>

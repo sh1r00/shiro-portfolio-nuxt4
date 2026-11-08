@@ -36,13 +36,13 @@ export function useAdmin() {
     }
   }
 
-  async function createItem(payload: { title: string; url: string; thumbnail: string; kind: 'live' | 'template'; sort_order: number }) {
+  async function createItem(payload: { title: string; url: string; thumbnail: string; kind: WorkItem['kind']; sort_order: number }) {
     await $fetch('/api/admin/items', { method: 'POST', credentials: 'include', body: payload })
     toast.success('Item added')
     await loadItems()
   }
 
-  async function updateItem(id: number, payload: { title: string; url: string; thumbnail: string; kind: 'live' | 'template'; sort_order: number }) {
+  async function updateItem(id: number, payload: { title: string; url: string; thumbnail: string; kind: WorkItem['kind']; sort_order: number }) {
     await $fetch(`/api/admin/items/${id}`, { method: 'PUT', credentials: 'include', body: payload })
     toast.success('Item updated')
     await loadItems()
