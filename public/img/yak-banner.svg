@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="Yack-Shack — yak fur goods">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7EFE0"/>
+      <stop offset="1" stop-color="#E9D9C0"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8B5E3C"/>
+      <stop offset="1" stop-color="#6B4226"/>
+    </linearGradient>
+    <linearGradient id="fur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#D8A763"/>
+      <stop offset="1" stop-color="#C08A45"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <!-- yak + shack, left side -->
+  <g transform="translate(80,104)">
+    <path d="M94 252 h324 v160 a20 20 0 0 1 -20 20 h-284 a20 20 0 0 1 -20 -20 z" fill="#8B5E3C"/>
+    <path d="M256 92 L420 256 L92 256 Z" fill="url(#roof)"/>
+    <path d="M256 92 L420 256 L414 256 L256 104 Z" fill="#A8734B" opacity="0.5"/>
+    <rect x="200" y="306" width="112" height="158" rx="54" fill="#3A2718"/>
+
+    <path d="M256 276
+             C210 276 190 300 190 340
+             L182 336 L188 356 L180 352 L188 372 L182 370 L190 392 L184 390 L194 410 L190 406 L204 424
+             L196 420 L216 438 L210 434 L232 450 L230 448 L256 456
+             L282 448 L280 450 L302 434 L296 438 L316 420 L308 424 L322 406 L318 410 L328 390 L322 392 L330 372 L324 370 L332 352 L326 356 L334 336 L330 340
+             L322 300 C322 276 302 276 256 276 Z"
+          fill="url(#fur)"/>
+
+    <path d="M 244 278 C 204 248 160 214 118 186 C 148 206 182 250 208 298 Z" fill="#F4EEE2" stroke="#6B4226" stroke-width="5"/>
+    <path d="M 268 278 C 308 248 352 214 394 186 C 364 206 330 250 304 298 Z" fill="#F4EEE2" stroke="#6B4226" stroke-width="5"/>
+
+    <circle cx="231" cy="342" r="8" fill="#2E1C10"/>
+    <circle cx="281" cy="342" r="8" fill="#2E1C10"/>
+    <circle cx="234" cy="339" r="2.6" fill="#fff" opacity="0.85"/>
+    <circle cx="284" cy="339" r="2.6" fill="#fff" opacity="0.85"/>
+
+    <ellipse cx="256" cy="392" rx="42" ry="28" fill="#F0E2CB"/>
+    <circle cx="243" cy="392" r="4.5" fill="#3A2718"/>
+    <circle cx="269" cy="392" r="4.5" fill="#3A2718"/>
+    <path d="M248 382 Q256 388 264 382" stroke="#B98C58" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- wordmark -->
+  <g>
+    <text x="676" y="336" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700" fill="#6B4226" letter-spacing="1">YACK-SHACK</text>
+    <rect x="680" y="372" width="180" height="7" rx="3.5" fill="#C89B5A"/>
+    <text x="680" y="422" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="700" fill="#8B5E3C" letter-spacing="8">YAK FUR GOODS</text>
+  </g>
+</svg>

@@ -13,7 +13,7 @@ const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'tem
   { title: 'Skilled Trades Marketplace', url: 'https://skilled-trades-marketplace.vercel.app', thumbnail: '/img/skilled-trades.png', kind: 'live' },
   { title: 'Dice Arena', url: 'https://sh1r00-dice-arena.rasisg.workers.dev', thumbnail: '/img/dice-arena.png', kind: 'live' },
   { title: 'SH1R00 Portfolio', url: 'https://shiro-portfolio-nuxt4.rasisg.workers.dev', thumbnail: '/img/shiro-portfolio.svg', kind: 'live' },
-  { title: 'Yack-Shack', url: 'https://yack-shack.pages.dev', thumbnail: 'https://yack-shack.pages.dev/icons/yak-banner.svg', kind: 'live' },
+  { title: 'Yack-Shack', url: 'https://yack-shack.pages.dev', thumbnail: '/img/yak-banner.svg', kind: 'live' },
   { title: 'Savora Restaurant', url: 'https://restaurant-editable.netlify.app', thumbnail: '/img/restaurant-editable.png', kind: 'template' },
   { title: 'Terra & Flame', url: 'https://restaurant-horizontal.netlify.app', thumbnail: '/img/restaurant-horizontal.png', kind: 'template' },
   { title: 'Restaurant Vertical', url: 'https://restaurant-vertical.netlify.app', thumbnail: '/img/restaurant-vertical.png', kind: 'template' },
