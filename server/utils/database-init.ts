@@ -5,13 +5,14 @@ import { getAdminSecret } from './session'
 import { getRequestEnvironmentValue, isCloudflareRuntime } from './runtime-env'
 
 const SEED: { title: string; url: string; thumbnail: string; kind: 'live' | 'template' }[] = [
-  { title: 'Shop Tulu', url: 'https://shop-tulu.netlify.app', thumbnail: '/img/shop-tulu.png', kind: 'live' },
-  { title: 'kPhone Marketing', url: 'https://marketing-campaign-gen.netlify.app', thumbnail: '/img/kphone-marketing.png', kind: 'live' },
-  { title: 'Credit Wiz', url: 'https://credit-wizard-sh1r00-229.netlify.app', thumbnail: '/img/credit-wizard.png', kind: 'live' },
-  { title: 'Money Conversion SPA', url: 'https://trading-bot-sh1r00-332.netlify.app', thumbnail: '/img/trading-bot.png', kind: 'live' },
+  { title: 'Shop Tulu', url: 'https://shop-tulu.pages.dev', thumbnail: '/img/shop-tulu.png', kind: 'live' },
+  { title: 'kPhone Marketing', url: 'https://marketing-gen.pages.dev', thumbnail: '/img/kphone-marketing.png', kind: 'live' },
+  { title: 'Credit Wiz', url: 'https://credit-wizard.pages.dev', thumbnail: '/img/credit-wizard.png', kind: 'live' },
+  { title: 'Money Conversion SPA', url: 'https://trading-bot-dxt.pages.dev', thumbnail: '/img/trading-bot.png', kind: 'live' },
   { title: 'Mehari Global Solutions', url: 'https://meti-site.onrender.com', thumbnail: '/img/meti-site.png', kind: 'live' },
-  { title: 'Skilled Trades Marketplace', url: 'https://trades-markets.netlify.app', thumbnail: '/img/skilled-trades.png', kind: 'live' },
-  { title: 'SH1R00 Portfolio', url: 'https://shiro-portfolio-sh1r00.netlify.app', thumbnail: '/img/shiro-portfolio.svg', kind: 'live' },
+  { title: 'Skilled Trades Marketplace', url: 'https://skilled-trades-marketplace.vercel.app', thumbnail: '/img/skilled-trades.png', kind: 'live' },
+  { title: 'Dice Arena', url: 'https://sh1r00-dice-arena.rasisg.workers.dev', thumbnail: '/img/dice-arena.png', kind: 'live' },
+  { title: 'SH1R00 Portfolio', url: 'https://shiro-portfolio-nuxt4.rasisg.workers.dev', thumbnail: '/img/shiro-portfolio.svg', kind: 'live' },
   { title: 'Yack-Shack', url: 'https://yack-shack.pages.dev', thumbnail: 'https://yack-shack.pages.dev/icons/yak-banner.svg', kind: 'live' },
   { title: 'Savora Restaurant', url: 'https://restaurant-editable.netlify.app', thumbnail: '/img/restaurant-editable.png', kind: 'template' },
   { title: 'Terra & Flame', url: 'https://restaurant-horizontal.netlify.app', thumbnail: '/img/restaurant-horizontal.png', kind: 'template' },
